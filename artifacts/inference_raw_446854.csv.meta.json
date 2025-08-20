@@ -1,0 +1,14 @@
+{
+  "artifact": "/home/johnro/sop-research/artifacts/inference_raw_446854.csv",
+  "created_at": "2025-08-19T23:10:45.310732Z",
+  "git_sha": null,
+  "config": {
+    "step": "inference",
+    "component": "inference",
+    "config": {
+      "default_model": "google:test",
+      "input_csv": "/tmp/inference_in_446854.csv",
+      "output_csv": "/home/johnro/sop-research/artifacts/inference_raw_446854.csv"
+    }
+  }
+}

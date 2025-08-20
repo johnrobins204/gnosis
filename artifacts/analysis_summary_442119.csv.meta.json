@@ -1,0 +1,15 @@
+{
+  "artifact": "/home/johnro/sop-research/artifacts/analysis_summary_442119.csv",
+  "created_at": "2025-08-19T22:44:26.932277Z",
+  "git_sha": null,
+  "config": {
+    "step": "analyst",
+    "component": "analyst",
+    "config": {
+      "group_col": "model",
+      "input_csv": "/home/johnro/sop-research/artifacts/inference_judged_442119.csv",
+      "output_csv": "/home/johnro/sop-research/artifacts/analysis_summary_442119.csv",
+      "rating_col": "judge_rating"
+    }
+  }
+}
