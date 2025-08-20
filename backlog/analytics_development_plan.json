@@ -1,170 +1,329 @@
 {
-  "title": "Analytics Module Development Plan",
+  "title": "Analytics Module Enhancement Plan",
   "version": "1.0",
-  "overview": "Enhance the analytics module to provide robust statistical analysis capabilities suitable for PhD/post-doc level prompt engineering research. Implement selective metric capture, academic-grade evaluation metrics, and visualization tools.",
+  "overview": "Extend the existing analytics module with advanced visualization, reporting, and integration capabilities, starting with a flexible aggregation system for hierarchical experimental data.",
   "goals": [
-    "Implement selective metric capture based on configuration",
-    "Add academic-grade NLP and statistical evaluation metrics",
-    "Create publication-ready visualization capabilities",
-    "Enable longitudinal analysis across experiments",
-    "Integrate analytics with the existing orchestration pipeline",
-    "Provide comprehensive documentation for researchers"
+    "Implement flexible data aggregation system for multi-level analysis",
+    "Create real-time monitoring dashboard for experiment tracking",
+    "Develop automated report generation system for publication-ready outputs",
+    "Add specialized metrics for advanced research scenarios",
+    "Integrate with external benchmarking tools and frameworks",
+    "Implement performance profiling and cost tracking features",
+    "Enhance documentation with advanced usage examples"
+  ],
+  "phases": [
+    {
+      "name": "Immediate Enhancement",
+      "description": "Implement critical aggregation functionality needed for current experiments",
+      "timeline": "1-2 weeks",
+      "tasks": [10]
+    },
+    {
+      "name": "Visualization & Reporting",
+      "description": "Enhance the visualization capabilities with real-time dashboards and automated reporting",
+      "timeline": "2-3 weeks",
+      "tasks": [1, 2, 3]
+    },
+    {
+      "name": "Advanced Metrics & Benchmarking",
+      "description": "Implement specialized metrics and connect to external benchmarking systems",
+      "timeline": "3-4 weeks",
+      "tasks": [4, 5, 6]
+    },
+    {
+      "name": "Performance & Integration",
+      "description": "Add performance tracking and deepen integration with existing systems",
+      "timeline": "2-3 weeks",
+      "tasks": [7, 8]
+    },
+    {
+      "name": "Documentation & Examples",
+      "description": "Document new features and provide example workflows",
+      "timeline": "1-2 weeks",
+      "tasks": [9]
+    }
   ],
   "tasks": [
     {
-      "id": 1,
-      "title": "Update analytics configuration system",
-      "description": "Modify src/analytics.py to support selective metric capture and create a new configuration file for detailed options.",
+      "id": 10,
+      "title": "Implement hierarchical data aggregation system",
+      "description": "Create a flexible system for aggregating experimental data at different levels of granularity. Support multi-stage analytics pipelines that can perform calculations on both raw and aggregated data.",
       "files": [
-        "src/analytics.py",
-        "src/config/analytics_config.py"
+        "src/analytics/aggregation.py",
+        "src/analytics/metrics/aggregate_metrics.py",
+        "tests/analytics/test_aggregation.py"
       ],
       "acceptance_criteria": [
-        "Configuration system allows enabling/disabling specific metrics",
-        "Analytics module respects configuration when calculating metrics",
-        "Configuration validation prevents invalid metric combinations"
+        "Data can be grouped by any combination of fields",
+        "Multiple aggregation functions supported (mean, median, std, count, custom)",
+        "Analytics pipelines can process both raw and aggregated data",
+        "Aggregated results maintain appropriate statistical properties",
+        "Aggregation operations are efficiently implemented for large datasets",
+        "Results at each aggregation level can be visualized and compared",
+        "Integration with existing metrics framework and experiment tracker"
       ],
-      "estimated_minutes": 120,
+      "estimated_minutes": 240,
       "dependencies": [],
+      "status": "done",
+      "priority": "high"
+    },
+    {
+      "id": 1,
+      "title": "Implement real-time monitoring dashboard",
+      "description": "Create an interactive web dashboard for monitoring experiment progress and results in real-time using Streamlit or Dash.",
+      "files": [
+        "src/analytics/dashboard/__init__.py",
+        "src/analytics/dashboard/app.py",
+        "src/analytics/dashboard/components.py"
+      ],
+      "acceptance_criteria": [
+        "Dashboard displays experiment status and metrics in real-time",
+        "Interactive filtering and sorting of experiments",
+        "Visualizations automatically update as new data arrives",
+        "Multiple experiments can be compared side-by-side",
+        "Dashboard is accessible via web browser on configurable port",
+        "Session state is preserved between page refreshes"
+      ],
+      "estimated_minutes": 360,
+      "dependencies": [10],
       "status": "todo"
     },
     {
       "id": 2,
-      "title": "Extend base analytics classes",
-      "description": "Enhance src/analyst.py with more sophisticated analysis pipelines and implement statistical significance testing for prompt comparisons.",
+      "title": "Enhance visualization tools",
+      "description": "Improve existing visualization tools and ensure compatibility with new metrics and aggregation levels.",
       "files": [
-        "src/analyst.py"
+        "src/analytics/visualization.py",
+        "src/analytics/visualization_interactive.py"
       ],
       "acceptance_criteria": [
-        "Analysis pipelines support multiple evaluation approaches",
-        "Statistical significance testing is available for comparative analysis",
-        "Error handling is comprehensive and informative"
+        "Visualizations support new metrics and aggregation levels",
+        "Interactive visualizations are responsive and informative",
+        "Exported figures maintain publication-quality standards",
+        "Documentation includes examples of new visualizations",
+        "Performance optimizations for rendering large datasets",
+        "Customizable visualization parameters for advanced users"
       ],
-      "estimated_minutes": 180,
-      "dependencies": [1],
+      "estimated_minutes": 300,
+      "dependencies": [1, 4, 5, 6],
       "status": "todo"
     },
     {
       "id": 3,
-      "title": "Implement NLP evaluation metrics",
-      "description": "Add common NLP metrics (BLEU, ROUGE, BERTScore) for comparing model outputs to reference texts or other outputs.",
+      "title": "Automate report generation",
+      "description": "Develop a system to automatically generate reports in multiple formats (PDF, HTML) with customizable templates and content.",
       "files": [
-        "src/analytics/nlp_metrics.py",
-        "src/types.py"
+        "src/analytics/reporting.py",
+        "templates/report_template.jinja"
       ],
       "acceptance_criteria": [
-        "BLEU, ROUGE metrics implemented with configurable parameters",
-        "BERTScore implemented for semantic similarity",
-        "Metrics return consistent output format for downstream analysis"
+        "Reports can be generated in PDF and HTML formats",
+        "Template system allows customization of report layout and content",
+        "Reports include all relevant metrics and visualizations",
+        "Automated generation can be triggered by experiment completion",
+        "Sample reports provided for common scenarios",
+        "Documentation covers report customization and usage"
       ],
-      "estimated_minutes": 240,
-      "dependencies": [1],
-      "status": "todo"
-    },
-    {
-      "id": 4,
-      "title": "Implement statistical reliability metrics",
-      "description": "Add statistical reliability metrics including confidence intervals and effect sizes for comparing prompt strategies.",
-      "files": [
-        "src/analytics/statistical_tests.py"
-      ],
-      "acceptance_criteria": [
-        "Confidence interval calculation for metrics",
-        "Effect size calculations (Cohen's d, etc.)",
-        "P-value calculation for hypothesis testing"
-      ],
-      "estimated_minutes": 180,
-      "dependencies": [1],
-      "status": "todo"
-    },
-    {
-      "id": 5,
-      "title": "Implement prompt efficiency metrics",
-      "description": "Add metrics for evaluating prompt efficiency including token utilization and instruction coherence.",
-      "files": [
-        "src/analytics/efficiency_metrics.py"
-      ],
-      "acceptance_criteria": [
-        "Token utilization metrics implemented",
-        "Instruction adherence scoring implemented",
-        "Performance/cost ratio metrics implemented"
-      ],
-      "estimated_minutes": 150,
-      "dependencies": [1],
-      "status": "todo"
-    },
-    {
-      "id": 6,
-      "title": "Create visualization tools",
-      "description": "Develop publication-ready visualization tools and comparative analysis dashboards.",
-      "files": [
-        "src/analytics/visualization.py"
-      ],
-      "acceptance_criteria": [
-        "Publication-quality figures with proper formatting",
-        "Comparative visualization across models and prompts",
-        "Export capabilities for common formats (PNG, SVG, PDF)"
-      ],
-      "estimated_minutes": 240,
-      "dependencies": [2, 3, 4, 5],
-      "status": "todo"
-    },
-    {
-      "id": 7,
-      "title": "Integrate with experiment tracking",
-      "description": "Connect analytics with src/orchestrator.py and enable longitudinal analysis across multiple experiments.",
-      "files": [
-        "src/orchestrator.py",
-        "src/analytics.py"
-      ],
-      "acceptance_criteria": [
-        "Analytics can be run as part of the orchestration pipeline",
-        "Results from multiple experiments can be compared",
-        "Analytics results are cached appropriately"
-      ],
-      "estimated_minutes": 180,
+      "estimated_minutes": 360,
       "dependencies": [2, 6],
       "status": "todo"
     },
     {
-      "id": 8,
-      "title": "Create unit tests for analytics",
-      "description": "Develop comprehensive unit tests for the analytics module.",
+      "id": 4,
+      "title": "Implement specialized metrics for advanced scenarios",
+      "description": "Add metrics for advanced research needs, including multilingual support, hallucination detection, and aggregated metric calculations.",
       "files": [
-        "tests/test_analytics.py"
+        "src/analytics/metrics/multilingual.py",
+        "src/analytics/metrics/hallucination.py",
+        "src/analytics/metrics/aggregate_metrics.py"
       ],
       "acceptance_criteria": [
-        "Test coverage > 80% for analytics module",
-        "Tests verify metric calculations against known values",
-        "Edge cases are handled appropriately"
+        "Multilingual metrics support evaluation in multiple languages",
+        "Hallucination detection metrics identify implausible model outputs",
+        "Aggregate metrics provide insights across multiple dimensions",
+        "All new metrics are integrated with the existing framework",
+        "Documentation includes detailed descriptions and usage examples",
+        "Performance is optimized for large-scale evaluations"
       ],
-      "estimated_minutes": 210,
-      "dependencies": [3, 4, 5, 6],
+      "estimated_minutes": 420,
+      "dependencies": [2, 3],
       "status": "todo"
     },
     {
-      "id": 9,
-      "title": "Document the analytics system",
-      "description": "Create comprehensive documentation for researchers and example notebooks demonstrating analytics workflows.",
+      "id": 5,
+      "title": "Integrate with external benchmarking tools",
+      "description": "Connect the analytics module with external benchmarking tools and frameworks for comprehensive evaluation.",
       "files": [
-        "docs/analytics.md",
-        "examples/analytics_examples.ipynb",
-        "README.md"
+        "src/analytics/benchmarking.py",
+        "tests/analytics/test_benchmarking.py"
       ],
       "acceptance_criteria": [
-        "Documentation covers all analytics features",
-        "Example notebooks show common research workflows",
-        "README updated with analytics capabilities overview"
+        "Seamless integration with popular benchmarking tools",
+        "Ability to import/export benchmark results",
+        "Documentation covers integration setup and usage",
+        "Sample integration provided for a popular benchmarking tool",
+        "Error handling for integration issues is comprehensive",
+        "Performance impact of integration is minimal"
       ],
-      "estimated_minutes": 240,
-      "dependencies": [7, 8],
+      "estimated_minutes": 300,
+      "dependencies": [4],
       "status": "todo"
+    },
+    {
+      "id": 6,
+      "title": "Add performance profiling and cost tracking",
+      "description": "Implement features to profile the performance of experiments and track the cost associated with compute resources.",
+      "files": [
+        "src/analytics/profiling.py",
+        "src/analytics/cost_tracking.py",
+        "tests/analytics/test_profiling.py",
+        "tests/analytics/test_cost_tracking.py"
+      ],
+      "acceptance_criteria": [
+        "Profiling captures detailed performance metrics (time, memory)",
+        "Cost tracking associates compute costs with experiments",
+        "Reports can include performance and cost analysis",
+        "Documentation includes guidance on interpreting profiling results",
+        "Integration with existing analytics workflows",
+        "Performance overhead of profiling is minimal"
+      ],
+      "estimated_minutes": 360,
+      "dependencies": [5],
+      "status": "todo"
+    },
+    {
+      "id": 7,
+      "title": "Document new analytics features",
+      "description": "Update documentation to include new features, metrics, and usage examples. Ensure researchers have clear guidance on using the enhanced analytics module.",
+      "files": [
+        "docs/analytics/overview.md",
+        "docs/analytics/metrics.md",
+        "docs/analytics/visualization.md",
+        "docs/analytics/experiment_tracking.md",
+        "docs/analytics/reporting.md",
+        "examples/notebooks/advanced_usage.ipynb"
+      ],
+      "acceptance_criteria": [
+        "Documentation covers all new features and metrics",
+        "Example notebooks demonstrate advanced usage scenarios",
+        "API reference is updated with new parameters and functions",
+        "Guides for integrating with external tools are included",
+        "Performance profiling and cost tracking documentation is clear",
+        "Documentation is reviewed and approved by research team"
+      ],
+      "estimated_minutes": 420,
+      "dependencies": [6],
+      "status": "todo"
+    }
+  ],
+  "module_structure": {
+    "src/analytics/": {
+      "description": "Core analytics package",
+      "files": [
+        "__init__.py",
+        "visualization_interactive.py",
+        "aggregation.py"
+      ],
+      "subdirectories": {
+        "dashboard/": {
+          "description": "Real-time monitoring dashboard",
+          "files": [
+            "__init__.py",
+            "app.py",
+            "components.py"
+          ]
+        },
+        "metrics/": {
+          "description": "Enhanced metrics implementations",
+          "files": [
+            "multilingual.py",
+            "hallucination.py",
+            "aggregate_metrics.py"
+          ]
+        }
+      }
+    },
+    "tests/analytics/": {
+      "description": "Analytics tests",
+      "files": [
+        "__init__.py",
+        "test_metrics_base.py",
+        "test_nlp_metrics.py",
+        "test_statistical_metrics.py",
+        "test_prompt_metrics.py",
+        "test_visualization.py",
+        "test_aggregation.py",
+        "test_benchmarking.py",
+        "test_profiling.py",
+        "test_cost_tracking.py"
+      ]
+    },
+    "docs/analytics/": {
+      "description": "Analytics documentation",
+      "files": [
+        "overview.md",
+        "metrics.md",
+        "visualization.md",
+        "experiment_tracking.md",
+        "reporting.md"
+      ]
+    },
+    "examples/notebooks/": {
+      "description": "Example notebooks",
+      "files": [
+        "basic_analytics.ipynb",
+        "comparative_analysis.ipynb",
+        "publication_figures.ipynb",
+        "advanced_usage.ipynb"
+      ]
+    }
+  },
+  "dependencies": [
+    {
+      "name": "pandas",
+      "version": ">=1.3.0",
+      "purpose": "Data aggregation and manipulation"
+    },
+    {
+      "name": "numpy",
+      "version": ">=1.20.0",
+      "purpose": "Numerical operations for aggregations"
+    },
+    {
+      "name": "nltk",
+      "version": ">=3.6.0",
+      "purpose": "NLP metrics (BLEU, ROUGE)"
+    },
+    {
+      "name": "scipy",
+      "version": ">=1.7.0",
+      "purpose": "Statistical tests and calculations"
+    },
+    {
+      "name": "matplotlib",
+      "version": ">=3.5.0",
+      "purpose": "Base visualization capabilities"
+    },
+    {
+      "name": "seaborn",
+      "version": ">=0.11.0",
+      "purpose": "Advanced statistical visualizations"
+    },
+    {
+      "name": "transformers",
+      "version": ">=4.18.0",
+      "purpose": "BERTScore and transformer-based metrics"
+    },
+    {
+      "name": "pyyaml",
+      "version": ">=6.0",
+      "purpose": "Configuration file parsing"
     }
   ],
   "metadata": {
     "completed": false,
     "updated_by": "GitHub Copilot",
-    "updated_at": "2025-08-20T12:00:00Z",
+    "updated_at": "2025-08-20T14:30:00Z",
     "repo_root": "/home/johnro/sop-research/gnosis"
   }
 }

@@ -1,0 +1,7 @@
+metrics:
+  nlp:
+    enabled: true
+  statistical:
+    enabled: true
+  prompt_engineering:
+    enabled: false

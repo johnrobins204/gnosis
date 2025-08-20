@@ -1,5 +1,6 @@
 from dataclasses import dataclass, asdict
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
+
 import json
 
 
@@ -28,5 +29,7 @@ class ModelResponse:
             metadata=d.get("metadata") or {},
         )
 
+
+MetricInput = Dict[str, List[str]]  # Example: {"references": [...], "hypotheses": [...]}
 
 __all__ = ["ModelResponse"]

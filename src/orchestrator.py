@@ -4,6 +4,8 @@ from typing import Dict, Any, List
 import yaml
 
 from src.io import write_provenance
+from src.analytics.experiment_tracker import ExperimentTracker
+from src.analytics import Analytics
 
 
 _COMPONENT_MAP = {
@@ -11,6 +13,37 @@ _COMPONENT_MAP = {
     "judge": "src.judge",
     "analyst": "src.analyst",
 }
+
+
+class Orchestrator:
+    """Class for orchestrating experiments and analytics."""
+
+    def __init__(self):
+        self.tracker = ExperimentTracker()
+        self.analytics = Analytics()
+
+    def run_experiment(self, config, data):
+        """Run an experiment and track its results."""
+        fingerprint = self.tracker.generate_fingerprint(config)
+        print(f"Experiment fingerprint: {fingerprint}")
+
+        # Check if results already exist
+        try:
+            results = self.tracker.load_results(fingerprint)
+            print("Results already exist. Loading from cache.")
+        except FileNotFoundError:
+            print("Running experiment...")
+            results = self.analytics.calculate_metrics(data)
+            self.tracker.save_results(fingerprint, results)
+
+        return results
+
+    def compare_experiments(self, fingerprints):
+        """Compare results from multiple experiments."""
+        results = [self.tracker.load_results(fp) for fp in fingerprints]
+        # Example comparison logic (extend as needed)
+        comparison = {fp: res for fp, res in zip(fingerprints, results)}
+        return comparison
 
 
 def orchestrate(config_path: str) -> Dict[str, Any]:

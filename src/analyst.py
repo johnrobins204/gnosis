@@ -1,7 +1,9 @@
 import argparse
 from typing import Dict, Any, List, Optional
 import pandas as pd
+from scipy.stats import ttest_ind
 
+from src.analytics.metrics.base import MetricRegistry
 from src.io import load_csv, write_dataframe  # uses centralized IO helpers
 from src.logging_config import get_logger
 
@@ -57,6 +59,37 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     except Exception as e:
         _logger.exception("run_from_config failed: %s", e)
         return {"success": False, "error": str(e), "artifacts": []}
+
+
+class Analyst:
+    """Class for running analysis pipelines."""
+
+    def __init__(self):
+        self.metrics = []
+
+    def register_metric(self, metric_name):
+        """Register a metric by name."""
+        metric_class = MetricRegistry.get_metric(metric_name)
+        if not metric_class:
+            raise ValueError(f"Metric '{metric_name}' not found in registry.")
+        self.metrics.append(metric_class())
+
+    def run_analysis(self, data):
+        """Run all registered metrics on the provided data."""
+        results = {}
+        for metric in self.metrics:
+            results[metric.name()] = metric.calculate(data)
+        return results
+
+    def compare_prompts(self, data1, data2):
+        """Perform statistical significance testing between two datasets."""
+        results = {}
+        for metric in self.metrics:
+            metric1 = metric.calculate(data1)
+            metric2 = metric.calculate(data2)
+            t_stat, p_value = ttest_ind(metric1, metric2, equal_var=False)
+            results[metric.name()] = {"t_stat": t_stat, "p_value": p_value}
+        return results
 
 
 def run(argv: Optional[List[str]] = None) -> int:

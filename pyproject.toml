@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gnosis"
+version = "0.0.0"
+description = "Gnosis prompt research bench"
+authors = [{name = "johnrobins204"}]
+readme = "README.md"
+requires-python = ">=3.10"
