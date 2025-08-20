@@ -18,3 +18,8 @@ __pycache__/
 results/
 .venv/
 .env
+pytest-output.txt
+*.egg-info
+.venv-test
+.venv
+__pycache__
