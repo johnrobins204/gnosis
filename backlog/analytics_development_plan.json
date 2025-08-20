@@ -1,0 +1,170 @@
+{
+  "title": "Analytics Module Development Plan",
+  "version": "1.0",
+  "overview": "Enhance the analytics module to provide robust statistical analysis capabilities suitable for PhD/post-doc level prompt engineering research. Implement selective metric capture, academic-grade evaluation metrics, and visualization tools.",
+  "goals": [
+    "Implement selective metric capture based on configuration",
+    "Add academic-grade NLP and statistical evaluation metrics",
+    "Create publication-ready visualization capabilities",
+    "Enable longitudinal analysis across experiments",
+    "Integrate analytics with the existing orchestration pipeline",
+    "Provide comprehensive documentation for researchers"
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Update analytics configuration system",
+      "description": "Modify src/analytics.py to support selective metric capture and create a new configuration file for detailed options.",
+      "files": [
+        "src/analytics.py",
+        "src/config/analytics_config.py"
+      ],
+      "acceptance_criteria": [
+        "Configuration system allows enabling/disabling specific metrics",
+        "Analytics module respects configuration when calculating metrics",
+        "Configuration validation prevents invalid metric combinations"
+      ],
+      "estimated_minutes": 120,
+      "dependencies": [],
+      "status": "todo"
+    },
+    {
+      "id": 2,
+      "title": "Extend base analytics classes",
+      "description": "Enhance src/analyst.py with more sophisticated analysis pipelines and implement statistical significance testing for prompt comparisons.",
+      "files": [
+        "src/analyst.py"
+      ],
+      "acceptance_criteria": [
+        "Analysis pipelines support multiple evaluation approaches",
+        "Statistical significance testing is available for comparative analysis",
+        "Error handling is comprehensive and informative"
+      ],
+      "estimated_minutes": 180,
+      "dependencies": [1],
+      "status": "todo"
+    },
+    {
+      "id": 3,
+      "title": "Implement NLP evaluation metrics",
+      "description": "Add common NLP metrics (BLEU, ROUGE, BERTScore) for comparing model outputs to reference texts or other outputs.",
+      "files": [
+        "src/analytics/nlp_metrics.py",
+        "src/types.py"
+      ],
+      "acceptance_criteria": [
+        "BLEU, ROUGE metrics implemented with configurable parameters",
+        "BERTScore implemented for semantic similarity",
+        "Metrics return consistent output format for downstream analysis"
+      ],
+      "estimated_minutes": 240,
+      "dependencies": [1],
+      "status": "todo"
+    },
+    {
+      "id": 4,
+      "title": "Implement statistical reliability metrics",
+      "description": "Add statistical reliability metrics including confidence intervals and effect sizes for comparing prompt strategies.",
+      "files": [
+        "src/analytics/statistical_tests.py"
+      ],
+      "acceptance_criteria": [
+        "Confidence interval calculation for metrics",
+        "Effect size calculations (Cohen's d, etc.)",
+        "P-value calculation for hypothesis testing"
+      ],
+      "estimated_minutes": 180,
+      "dependencies": [1],
+      "status": "todo"
+    },
+    {
+      "id": 5,
+      "title": "Implement prompt efficiency metrics",
+      "description": "Add metrics for evaluating prompt efficiency including token utilization and instruction coherence.",
+      "files": [
+        "src/analytics/efficiency_metrics.py"
+      ],
+      "acceptance_criteria": [
+        "Token utilization metrics implemented",
+        "Instruction adherence scoring implemented",
+        "Performance/cost ratio metrics implemented"
+      ],
+      "estimated_minutes": 150,
+      "dependencies": [1],
+      "status": "todo"
+    },
+    {
+      "id": 6,
+      "title": "Create visualization tools",
+      "description": "Develop publication-ready visualization tools and comparative analysis dashboards.",
+      "files": [
+        "src/analytics/visualization.py"
+      ],
+      "acceptance_criteria": [
+        "Publication-quality figures with proper formatting",
+        "Comparative visualization across models and prompts",
+        "Export capabilities for common formats (PNG, SVG, PDF)"
+      ],
+      "estimated_minutes": 240,
+      "dependencies": [2, 3, 4, 5],
+      "status": "todo"
+    },
+    {
+      "id": 7,
+      "title": "Integrate with experiment tracking",
+      "description": "Connect analytics with src/orchestrator.py and enable longitudinal analysis across multiple experiments.",
+      "files": [
+        "src/orchestrator.py",
+        "src/analytics.py"
+      ],
+      "acceptance_criteria": [
+        "Analytics can be run as part of the orchestration pipeline",
+        "Results from multiple experiments can be compared",
+        "Analytics results are cached appropriately"
+      ],
+      "estimated_minutes": 180,
+      "dependencies": [2, 6],
+      "status": "todo"
+    },
+    {
+      "id": 8,
+      "title": "Create unit tests for analytics",
+      "description": "Develop comprehensive unit tests for the analytics module.",
+      "files": [
+        "tests/test_analytics.py"
+      ],
+      "acceptance_criteria": [
+        "Test coverage > 80% for analytics module",
+        "Tests verify metric calculations against known values",
+        "Edge cases are handled appropriately"
+      ],
+      "estimated_minutes": 210,
+      "dependencies": [3, 4, 5, 6],
+      "status": "todo"
+    },
+    {
+      "id": 9,
+      "title": "Document the analytics system",
+      "description": "Create comprehensive documentation for researchers and example notebooks demonstrating analytics workflows.",
+      "files": [
+        "docs/analytics.md",
+        "examples/analytics_examples.ipynb",
+        "README.md"
+      ],
+      "acceptance_criteria": [
+        "Documentation covers all analytics features",
+        "Example notebooks show common research workflows",
+        "README updated with analytics capabilities overview"
+      ],
+      "estimated_minutes": 240,
+      "dependencies": [7, 8],
+      "status": "todo"
+    }
+  ],
+  "metadata": {
+    "completed": false,
+    "updated_by": "GitHub Copilot",
+    "updated_at": "2025-08-20T12:00:00Z",
+    "repo_root": "/home/johnro/sop-research/gnosis"
+  }
+}
