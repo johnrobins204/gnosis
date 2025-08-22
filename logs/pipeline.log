@@ -4252,3 +4252,10 @@ KeyError: "Input data must have a 'response' column or key."
 2025-08-20 21:02:09,181 INFO src.io Wrote dataframe to output/analysis_summary_semantic_drift.csv (rows=328)
 2025-08-20 21:02:09,182 INFO analyst run_from_config finished successfully, wrote output/analysis_summary_semantic_drift.csv
 2025-08-20 21:02:09,210 INFO src.io Wrote provenance for output/analysis_summary_semantic_drift.csv -> output/analysis_summary_semantic_drift.csv.meta.json
+2025-08-21 20:32:25,842 ERROR analytics.addin Add-in FailingAddin failed: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 13, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!

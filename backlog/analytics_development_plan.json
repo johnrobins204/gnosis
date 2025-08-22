@@ -80,7 +80,7 @@
       ],
       "estimated_minutes": 60,
       "dependencies": [],
-      "status": "todo",
+      "status": "done",
       "priority": "high"
     },
     {
@@ -97,7 +97,7 @@
       ],
       "estimated_minutes": 60,
       "dependencies": [30],
-      "status": "todo",
+      "status": "done",
       "priority": "high"
     },
     {
@@ -113,7 +113,7 @@
       ],
       "estimated_minutes": 120,
       "dependencies": [31,20],
-      "status": "todo",
+      "status": "done",
       "priority": "high"
     },
     {
@@ -129,7 +129,7 @@
       ],
       "estimated_minutes": 240,
       "dependencies": [32],
-      "status": "todo",
+  "status": "done",
       "priority": "high"
     },
     {
