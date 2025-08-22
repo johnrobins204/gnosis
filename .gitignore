@@ -11,6 +11,9 @@ __pycache__/
 .vscode/
 .idea/
 
+#backlog
+backlog/
+
 # Custom cache files
 .context_cache
 
@@ -23,3 +26,4 @@ pytest-output.txt
 .venv-test
 .venv
 __pycache__
+*.csv

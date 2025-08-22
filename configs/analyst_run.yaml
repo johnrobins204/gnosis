@@ -1,0 +1,42 @@
+steps:
+  - name: analyst_step_faithfulness
+    component: analyst
+    config:
+      input_csv: "input/full_log_sop_stable.cleaned.csv"
+      output_csv: "output/analysis_summary_faithfulness.csv"
+      group_col: ["synthesis_id", "ablation_condition"]
+      rating_col: "score_faithfulness_rating"
+
+  - name: analyst_step_correctness
+    component: analyst
+    config:
+      input_csv: "input/full_log_sop_stable.cleaned.csv"
+      output_csv: "output/analysis_summary_correctness.csv"
+      group_col: ["synthesis_id", "ablation_condition"]
+      rating_col: "score_correctness_rating"
+
+  - name: analyst_step_completeness
+    component: analyst
+    config:
+      input_csv: "input/full_log_sop_stable.cleaned.csv"
+      output_csv: "output/analysis_summary_completeness.csv"
+      group_col: ["synthesis_id", "ablation_condition"]
+      rating_col: "score_completeness_rating"
+
+  - name: analyst_step_clarity
+    component: analyst
+    config:
+      input_csv: "input/full_log_sop_stable.cleaned.csv"
+      output_csv: "output/analysis_summary_clarity.csv"
+      group_col: ["synthesis_id", "ablation_condition"]
+      rating_col: "score_clarity_rating"
+
+  - name: analyst_step_semantic_drift
+    component: analyst
+    config:
+      input_csv: "input/full_log_sop_stable.cleaned.csv"
+      output_csv: "output/analysis_summary_semantic_drift.csv"
+      group_col: ["synthesis_id", "ablation_condition"]
+      metrics:
+      - name: semantic_difference
+        response_col: raw_model_output

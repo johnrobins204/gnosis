@@ -18,9 +18,10 @@ class MetricRegistry:
     _registry = {}
 
     @classmethod
-    def register(cls, metric_class):
-        """Register a metric class."""
-        cls._registry[metric_class.__name__] = metric_class
+    def register(cls, metric_class, name=None):
+        """Register a metric class with an optional custom name."""
+        key = name if name else metric_class.__name__
+        cls._registry[key] = metric_class
 
     @classmethod
     def get_metric(cls, name):

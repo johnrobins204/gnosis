@@ -1,8 +1,10 @@
 import pandas as pd
 import numpy as np
 from scipy import stats
-from typing import List, Dict, Any, Union, Callable
-from src.analytics.metrics.base import Metric, MetricRegistry
+from typing import List, Dict, Any
+
+from src.analytics.metrics.base import Metric
+from src.analytics.registry import MetricRegistry
 
 class AggregateMetric(Metric):
     """Base class for metrics that operate on aggregated data."""

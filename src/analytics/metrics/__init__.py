@@ -1,4 +1,5 @@
 """Basic metrics implementation for analytics."""
+from .semantic_difference import SemanticDifferenceMetric
 
 class BasicMetrics:
     """

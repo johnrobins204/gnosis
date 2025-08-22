@@ -68,6 +68,174 @@
       "priority": "high"
     },
     {
+      "id": 30,
+      "title": "Evaluate and select GUI framework for analytics app",
+      "description": "Research and choose a modern Python GUI framework (Streamlit, Dash, PyQt, etc.) suitable for analytics and data visualization workflows.",
+      "files": [
+        "docs/analytics/gui_framework_comparison.md"
+      ],
+      "acceptance_criteria": [
+        "Framework is selected based on project needs and best practices.",
+        "Comparison and rationale are documented."
+      ],
+      "estimated_minutes": 60,
+      "dependencies": [],
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": 31,
+      "title": "Set up project structure for GUI code",
+      "description": "Create a dedicated directory for GUI code and establish entry point scripts. Ensure clear separation between analytics logic and GUI layer.",
+      "files": [
+        "src/gui/",
+        "src/gui/app.py"
+      ],
+      "acceptance_criteria": [
+        "GUI code is modular and separated from analytics logic.",
+        "Project structure supports future GUI expansion."
+      ],
+      "estimated_minutes": 60,
+      "dependencies": [30],
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": 32,
+      "title": "Implement minimal working GUI for analytics app",
+      "description": "Develop a basic GUI that connects to the analytics backend and displays a simple table or plot from the database.",
+      "files": [
+        "src/gui/app.py"
+      ],
+      "acceptance_criteria": [
+        "GUI launches and displays data from analytics backend.",
+        "Basic navigation and data refresh are supported."
+      ],
+      "estimated_minutes": 120,
+      "dependencies": [31,20],
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": 33,
+      "title": "Add core analytics features to GUI (filtering, visualization, export)",
+      "description": "Iteratively add features to the GUI: data selection/filtering, key metrics, tables, visualizations, and export/download options.",
+      "files": [
+        "src/gui/app.py"
+      ],
+      "acceptance_criteria": [
+        "Users can filter/select data and view key analytics.",
+        "Visualizations and export features are available."
+      ],
+      "estimated_minutes": 240,
+      "dependencies": [32],
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": 34,
+      "title": "Polish GUI and document usage",
+      "description": "Refine the GUI for usability, add help/tooltips, and document usage and developer setup.",
+      "files": [
+        "src/gui/app.py",
+        "docs/analytics/gui_usage.md"
+      ],
+      "acceptance_criteria": [
+        "GUI is user-friendly and well-documented.",
+        "Help and example workflows are available."
+      ],
+      "estimated_minutes": 120,
+      "dependencies": [33],
+      "status": "todo",
+      "priority": "medium"
+    },
+    {
+      "id": 20,
+      "title": "Implement database abstraction for analytics data access",
+      "description": "Refactor analytics modules to use a database access layer (DAL) with SQLAlchemy or psycopg2, supporting both file-based and PostgreSQL backends.",
+      "files": [
+        "src/analytics/db.py",
+        "src/analytics/aggregation.py",
+        "src/analytics/metrics/aggregate_metrics.py"
+      ],
+      "acceptance_criteria": [
+        "All data access is routed through the DAL.",
+        "Switching between file and DB backends is configurable.",
+        "Secure handling of DB credentials (via environment variables/config).",
+        "Unit tests for both backends."
+      ],
+      "estimated_minutes": 240,
+      "dependencies": [],
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": 21,
+      "title": "Add migration system for analytics database schema",
+      "description": "Integrate Alembic (or similar) to manage schema changes and versioning for analytics tables.",
+      "files": [
+        "alembic/",
+        "alembic.ini"
+      ],
+      "acceptance_criteria": [
+        "Schema changes are tracked and reproducible.",
+        "Documentation for running migrations."
+      ],
+      "estimated_minutes": 120,
+      "dependencies": [20],
+      "status": "todo",
+      "priority": "medium"
+    },
+    {
+      "id": 22,
+      "title": "Provide example notebooks/scripts for DB analytics",
+      "description": "Create Jupyter notebooks and scripts demonstrating querying, aggregation, and visualization from PostgreSQL using pandas and SQLAlchemy.",
+      "files": [
+        "examples/notebooks/db_analytics.ipynb",
+        "examples/scripts/db_query_example.py"
+      ],
+      "acceptance_criteria": [
+        "Notebooks/scripts connect to DB, run queries, and visualize results.",
+        "Examples use environment variables for credentials."
+      ],
+      "estimated_minutes": 120,
+      "dependencies": [20],
+      "status": "todo",
+      "priority": "medium"
+    },
+    {
+      "id": 23,
+      "title": "Securely manage DB credentials and config",
+      "description": "Store DB connection info in .env files or environment variables, and document setup.",
+      "files": [
+        ".env.example",
+        "README.md"
+      ],
+      "acceptance_criteria": [
+        "No credentials in code.",
+        "Clear setup instructions for developers."
+      ],
+      "estimated_minutes": 60,
+      "dependencies": [20],
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": 24,
+      "title": "Document recommended DB admin and monitoring tools",
+      "description": "Add documentation for using pgAdmin, DBeaver, or CLI for DB inspection and troubleshooting.",
+      "files": [
+        "docs/analytics/db_admin.md"
+      ],
+      "acceptance_criteria": [
+        "Step-by-step instructions for connecting and inspecting the analytics DB."
+      ],
+      "estimated_minutes": 60,
+      "dependencies": [],
+      "status": "todo",
+      "priority": "low"
+    },
+    {
       "id": 1,
       "title": "Implement real-time monitoring dashboard",
       "description": "Create an interactive web dashboard for monitoring experiment progress and results in real-time using Streamlit or Dash.",

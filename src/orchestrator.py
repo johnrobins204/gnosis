@@ -5,8 +5,7 @@ import yaml
 
 from src.io import write_provenance
 from src.analytics.experiment_tracker import ExperimentTracker
-from src.analytics import Analytics
-
+from src.analytics.api import AnalyticsAPI
 
 _COMPONENT_MAP = {
     "inference": "src.inference",
@@ -20,7 +19,7 @@ class Orchestrator:
 
     def __init__(self):
         self.tracker = ExperimentTracker()
-        self.analytics = Analytics()
+        self.analytics = AnalyticsAPI()
 
     def run_experiment(self, config, data):
         """Run an experiment and track its results."""

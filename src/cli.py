@@ -1,6 +1,3 @@
-# ...new file...
-{ adds CLI subcommand 'orchestrate' that calls orchestrator.orchestrate }
-
 import argparse
 import sys
 from typing import List

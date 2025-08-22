@@ -5,7 +5,7 @@ import pandas as pd
 from src.io import load_csv, write_dataframe
 from src.logging_config import get_logger
 # Fix the import path to the correct location
-from src.analytics.aggregation import DataAggregator  # Changed from metrics.aggregate_metrics
+from src.analytics.aggregation import DataAggregator # Changed from metrics.aggregate_metrics
 from src.analytics.metrics import BasicMetrics
 
 _logger = get_logger("analytics")

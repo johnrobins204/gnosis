@@ -25,69 +25,6 @@ class DataAggregator:
         """Register a custom aggregation function."""
         self.aggregation_functions[name] = func
     
-    def aggregate(self, data: pd.DataFrame, 
-                 group_by: List[str], 
-                 metrics: Dict[str, Union[str, Callable]]) -> pd.DataFrame:
-        """
-        Aggregate data by specified columns using the given metrics.
-        
-        Args:
-            data: DataFrame containing the data to aggregate
-            group_by: List of column names to group by
-            metrics: Dictionary mapping output column names to aggregation functions
-                     Functions can be strings (referring to built-in functions) or callables
-        
-        Returns:
-            DataFrame with aggregated results
-        """
-        # Input validation
-        if data.empty:
-            return pd.DataFrame(columns=group_by + list(metrics.keys()))
-            
-        for col in group_by:
-            if col not in data.columns:
-                raise ValueError(f"Group-by column '{col}' not found in data")
-        
-        # Create a grouped object
-        grouped = data.groupby(group_by)
-        
-        # Create result dataframe with only the group_by columns
-        result = grouped.first().reset_index()[group_by].copy()
-        
-        # Apply each metric
-        for output_col, func_name in metrics.items():
-            # Get the aggregation function
-            if isinstance(func_name, str):
-                if func_name not in self.aggregation_functions:
-                    raise ValueError(f"Unknown aggregation function: {func_name}")
-                func = self.aggregation_functions[func_name]
-            else:
-                func = func_name
-            
-            # For count, we need to count any column
-            if func == len:
-                result[output_col] = grouped.size().values
-            else:
-                # Apply function to all numeric columns and take the first one
-                # This works for most metrics like mean, std, etc.
-                numeric_cols = data.select_dtypes(include=np.number).columns
-                
-                # Make sure we have at least one numeric column
-                if len(numeric_cols) == 0:
-                    raise ValueError("No numeric columns found for aggregation")
-                
-                # Use 'score' column if it exists, otherwise use the first numeric column
-                agg_col = 'score' if 'score' in numeric_cols else numeric_cols[0]
-                
-                # Always use the function object for custom aggregations
-                # Only use string names for built-in pandas aggregations
-                if isinstance(func_name, str) and func_name in ['mean', 'median', 'std', 'min', 'max', 'sum', 'var']:
-                    result[output_col] = grouped[agg_col].agg(func_name).values
-                else:
-                    result[output_col] = grouped[agg_col].agg(func).values
-    
-        return result
-    
     def multi_level_pipeline(self, data: pd.DataFrame, pipeline_config: List[Dict]) -> Dict[str, pd.DataFrame]:
         """
         Execute a multi-level analytics pipeline, performing operations at different levels of aggregation.
@@ -169,3 +106,22 @@ class DataAggregator:
         
         with open(filepath, 'w') as f:
             json.dump(serialized_config, f, indent=2)
+    
+    def aggregate(self, data: pd.DataFrame, metrics, group_by):
+        # Allow group_by to be a string or a list
+        if isinstance(group_by, str):
+            group_by = [group_by]
+        results = []
+        for metric in metrics:
+            if metric in data.columns:
+                grouped = data.groupby(group_by)[metric].mean().reset_index()
+                grouped = grouped.rename(columns={metric: f"{metric}_mean"})
+                results.append(grouped)
+        # Merge all results on group_by
+        if results:
+            result_df = results[0]
+            for df in results[1:]:
+                result_df = pd.merge(result_df, df, on=group_by)
+            return result_df
+        else:
+            return pd.DataFrame()

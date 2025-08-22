@@ -16,9 +16,16 @@ def analyze_df(df: pd.DataFrame, group_col: str, rating_col: str = "rating") -> 
     Group by `group_col` and return a DataFrame with the mean of `rating_col`.
     Raises ValueError if rating_col or group_col are missing.
     """
-    if group_col not in df.columns:
-        _logger.error("group_col '%s' not found in DataFrame columns", group_col)
-        raise ValueError(f"group_col '{group_col}' not found in DataFrame columns")
+    # Ensure group_col is a list
+    if isinstance(group_col, str):
+        group_col = [group_col]
+
+    # Check all group columns exist
+    for col in group_col:
+        if col not in df.columns:
+            _logger.error("group_col '%s' not found in DataFrame columns", col)
+            raise ValueError(f"Group column '{col}' not found in DataFrame columns.")
+
     if rating_col not in df.columns:
         _logger.error("rating_col '%s' not found in DataFrame columns", rating_col)
         raise ValueError(f"rating_col '{rating_col}' not found in DataFrame columns")
@@ -37,6 +44,7 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
       - group_col: column to group by
     optional:
       - rating_col: name of rating column (default 'rating')
+      - metrics: list of custom metric names
     Returns: {"success": bool, "artifacts": [output_csv]}
     """
     required = ["input_csv", "output_csv", "group_col"]
@@ -48,11 +56,47 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     input_csv = cfg["input_csv"]
     output_csv = cfg["output_csv"]
     group_col = cfg["group_col"]
-    rating_col = cfg.get("rating_col", "rating")
+    rating_col = cfg.get("rating_col")
+    metrics = cfg.get("metrics")
 
     try:
         df = load_csv(input_csv)
-        out_df = analyze_df(df, group_col=group_col, rating_col=rating_col)
+        if rating_col:
+            out_df = analyze_df(df, group_col=group_col, rating_col=rating_col)
+        elif metrics:
+            # Custom metric logic for text/semantic metrics
+            analyst = Analyst()
+            for metric_cfg in metrics:
+                if isinstance(metric_cfg, dict):
+                    metric_name = metric_cfg["name"]
+                    metric_kwargs = {k: v for k, v in metric_cfg.items() if k != "name"}
+                else:
+                    metric_name = metric_cfg
+                    metric_kwargs = {}
+                analyst.register_metric(metric_name, **metric_kwargs)
+            # Group and apply metrics
+            results = []
+            if isinstance(group_col, str):
+                group_col_list = [group_col]
+            else:
+                group_col_list = group_col
+            for group_vals, group_df in df.groupby(group_col_list):
+                res = {"group": group_vals}
+                metric_results = analyst.run_analysis(group_df)
+                res.update(metric_results)
+                results.append(res)
+            # Convert results to DataFrame
+            out_df = pd.DataFrame(results)
+            # Expand group columns if needed
+            if len(group_col_list) == 1:
+                out_df[group_col_list[0]] = out_df["group"]
+            else:
+                for idx, col in enumerate(group_col_list):
+                    out_df[col] = out_df["group"].apply(lambda x: x[idx])
+            out_df = out_df.drop(columns=["group"])
+        else:
+            raise ValueError("Must specify either rating_col or metrics in config.")
+
         write_dataframe(out_df, output_csv, index=False)
         _logger.info("run_from_config finished successfully, wrote %s", output_csv)
         return {"success": True, "artifacts": [output_csv]}
@@ -67,12 +111,11 @@ class Analyst:
     def __init__(self):
         self.metrics = []
 
-    def register_metric(self, metric_name):
-        """Register a metric by name."""
+    def register_metric(self, metric_name, **kwargs):
         metric_class = MetricRegistry.get_metric(metric_name)
         if not metric_class:
             raise ValueError(f"Metric '{metric_name}' not found in registry.")
-        self.metrics.append(metric_class())
+        self.metrics.append(metric_class(**kwargs))
 
     def run_analysis(self, data):
         """Run all registered metrics on the provided data."""

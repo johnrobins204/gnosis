@@ -31,7 +31,7 @@ pytest tests/test_end_to_end.py -v > "$LOGDIR/end_to_end_tests.log" 2>&1
 echo "Generating coverage reports..."
 pytest --cov=src.inference tests/inference/ > "$LOGDIR/inference_coverage.log" 2>&1
 pytest --cov=src.judge tests/judge/ > "$LOGDIR/judge_coverage.log" 2>&1
-pytest --cov=src.analytics tests/analytics/ tests/test_analytics.py > "$LOGDIR/analytics_coverage.log" 2>&1
+pytest --cov=src.analytic tests/analytics/ tests/test_analytics.py > "$LOGDIR/analytics_coverage.log" 2>&1
 pytest --cov=src.analytics.visualization tests/analytics/test_visualization*.py tests/test_visualization_smoke.py > "$LOGDIR/visualization_coverage.log" 2>&1
 
 echo "All tests complete! Logs and results are in $LOGDIR"
