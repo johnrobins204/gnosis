@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import Dict, Any, List, Optional
-import pandas as pd
+import pandas as pd  # type: ignore
 
 from src.io import load_csv, write_dataframe
 from src.logging_config import get_logger
@@ -52,9 +52,19 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     try:
         _logger.info(f"loading input_csv: {cfg['input_csv']}")
         data = load_csv(cfg["input_csv"])
+    except FileNotFoundError as e:
+        _logger.error(f"Input CSV not found: {e}")
+        return {"success": False, "error": f"Input CSV not found: {e}"}
+    except pd.errors.EmptyDataError as e:
+        _logger.error(f"Input CSV is empty: {e}")
+        return {"success": False, "error": f"Input CSV is empty: {e}"}
+    except ValueError as e:
+        _logger.error(f"Malformed CSV or invalid data: {e}")
+        return {"success": False, "error": f"Malformed CSV or invalid data: {e}"}
     except Exception as e:
-        _logger.error(f"failed to load input_csv: {e}")
-        return {"success": False, "error": f"failed to load input_csv: {e}"}
+        # Catch-all for unexpected errors
+        _logger.error(f"Unexpected error loading input_csv: {e}")
+        return {"success": False, "error": f"Unexpected error loading input_csv: {e}"}
     
     # Verify data has required columns
     if len(data) == 0:
@@ -95,51 +105,47 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
         group_by = cfg["group_by"]
         if isinstance(group_by, str):
             group_by = [group_by]
-            
         _logger.info(f"aggregating data by {group_by}")
         aggregator = DataAggregator()
-        
         try:
             # Try the original way first
             result_df = aggregator.aggregate(data, group_by, metrics)
-        except Exception as agg_error:
+        except (KeyError, ValueError, RuntimeError) as agg_error:
             # Fallback implementation if the original fails
             _logger.warning(f"Using fallback aggregation: {agg_error}")
-            
             # Simple manual implementation
             result_rows = []
             for name, group_data in data.groupby(group_by):
-                # Handle both single and multi-column grouping
                 if not isinstance(name, tuple):
                     name = (name,)
-                
-                # Create result row with group keys
                 row = dict(zip(group_by, name))
-                
-                # Calculate each metric
                 for metric_name, metric_func in metrics.items():
                     try:
                         row[metric_name] = metric_func(group_data)
-                    except Exception as e:
+                    except (KeyError, TypeError) as e:
                         _logger.error(f"Error calculating {metric_name}: {e}")
                         row[metric_name] = None
-                
+                    except Exception as e:
+                        # Catch-all for unexpected metric errors
+                        _logger.error(f"Unexpected error calculating {metric_name}: {e}")
+                        row[metric_name] = None
                 result_rows.append(row)
-            
             result_df = pd.DataFrame(result_rows)
-        
         # Write output
         _logger.info(f"writing output to {cfg['output_csv']}")
         write_dataframe(result_df, cfg["output_csv"])
-        
         return {
             "success": True,
             "artifacts": [cfg["output_csv"]],
             "rows": len(result_df)
         }
+    except (KeyError, ValueError, RuntimeError) as e:
+        _logger.error(f"Error during analytics: {e}")
+        return {"success": False, "error": f"Error during analytics: {e}"}
     except Exception as e:
-        _logger.error(f"error during analytics: {e}")
-        return {"success": False, "error": f"error during analytics: {e}"}
+        # Catch-all for unexpected errors in analytics
+        _logger.error(f"Unexpected error during analytics: {e}")
+        return {"success": False, "error": f"Unexpected error during analytics: {e}"}
 
 # Keep existing exports to maintain compatibility
 from src.analytics.experiment_tracker import ExperimentTracker

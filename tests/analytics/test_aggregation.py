@@ -201,15 +201,15 @@ def test_error_handling(sample_data):
     aggregator = DataAggregator()
     
     # Test invalid group-by column
-    with pytest.raises(ValueError):
+    with pytest.raises(KeyError):
         aggregator.aggregate(
             sample_data,
             group_by=["nonexistent_column"],
             metrics={"avg_score": "mean"}
         )
-    
+
     # Test invalid aggregation function
-    with pytest.raises(ValueError):
+    with pytest.raises(KeyError):
         aggregator.aggregate(
             sample_data,
             group_by=["experiment_id"],

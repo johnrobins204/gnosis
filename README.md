@@ -123,6 +123,20 @@ gnosisPWB bridges the gap between ad-hoc prompt experimentation and production-r
 
 *Note: This comparison reflects our current understanding and may evolve as tools in this space rapidly develop.*
 
+
+## Database Migration & Analytics I/O
+
+gnosisPWB now supports robust, database-backed analytics, experiment tracking, and aggregation result storage using PostgreSQL, SQLAlchemy, and Alembic migrations.
+
+- **Migration System**: Alembic manages schema migrations. See [`docs/analytics/db_setup.md`](docs/analytics/db_setup.md) for full instructions.
+- **DB Models**: Analytics events, experiments, experiment results, and aggregation results are stored in the database (see `db_migrations/models.py`).
+- **DB I/O**: Use `PostgresAnalyticsDataAccess`, `ExperimentTracker`, and `DataAggregator` for all analytics data, experiment, and aggregation result I/O. These modules default to DB-backed storage if configured.
+- **Environment Variables**: Set `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT`, and `DB_NAME` for DB access. Use a `.env` file or export in your shell.
+
+For migration and usage details, see [`docs/analytics/db_setup.md`](docs/analytics/db_setup.md).
+
+---
+
 ## Project Status and Roadmap
 
 gnosisPWB is currently in beta. Core functionality is implemented and usable, but the API may evolve based on user feedback.

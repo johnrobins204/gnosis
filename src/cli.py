@@ -1,11 +1,17 @@
+
 import argparse
 import sys
 from typing import List
-
 from src.orchestrator import orchestrate
+from src.logging_config import get_logger
+
+_logger = get_logger("cli")
 
 
-def run(argv: List[str] = None) -> int:
+
+from typing import Optional
+
+def run(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(prog="sop-orchestrator")
     parser.add_argument("--config", required=True, help="Path to run YAML config")
     args = parser.parse_args(argv)
@@ -14,9 +20,8 @@ def run(argv: List[str] = None) -> int:
     if res.get("success"):
         return 0
     else:
-        # print minimal error info to stderr
         for e in res.get("errors", []):
-            print(f"ERROR: {e}", file=sys.stderr)
+            _logger.error("%s", e)
         return 5
 
 

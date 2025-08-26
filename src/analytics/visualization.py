@@ -1,6 +1,6 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
+import matplotlib.pyplot as plt  # type: ignore
+import seaborn as sns  # type: ignore
+import pandas as pd  # type: ignore
 import os
 from typing import Dict, Any, List, Optional
 
@@ -39,9 +39,19 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     try:
         _logger.info(f"loading input_csv: {cfg['input_csv']}")
         data = load_csv(cfg["input_csv"])
+    except FileNotFoundError as e:
+        _logger.error(f"Input CSV not found: {e}")
+        return {"success": False, "error": f"Input CSV not found: {e}"}
+    except pd.errors.EmptyDataError as e:
+        _logger.error(f"Input CSV is empty: {e}")
+        return {"success": False, "error": f"Input CSV is empty: {e}"}
+    except ValueError as e:
+        _logger.error(f"Malformed CSV or invalid data: {e}")
+        return {"success": False, "error": f"Malformed CSV or invalid data: {e}"}
     except Exception as e:
-        _logger.error(f"failed to load input_csv: {e}")
-        return {"success": False, "error": f"failed to load input_csv: {e}"}
+        # Catch-all for unexpected errors
+        _logger.error(f"Unexpected error loading input_csv: {e}")
+        return {"success": False, "error": f"Unexpected error loading input_csv: {e}"}
     
     # Verify data has required columns
     if len(data) == 0:
@@ -67,7 +77,6 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
             if not metric_name:
                 _logger.error("metric_name is required for comparative visualization")
                 return {"success": False, "error": "metric_name is required for comparative visualization"}
-            
             output_path = os.path.join(cfg["output_dir"], f"comparative_{metric_name}.png")
             _logger.info(f"creating comparative visualization for {metric_name}")
             viz.plot_comparative_metrics(
@@ -76,12 +85,10 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
                 output_path=output_path
             )
             artifacts.append(output_path)
-            
         elif viz_type == "statistical":
             if not metric_name:
                 _logger.error("metric_name is required for statistical visualization")
                 return {"success": False, "error": "metric_name is required for statistical visualization"}
-            
             output_path = os.path.join(cfg["output_dir"], f"statistical_{metric_name}.png")
             _logger.info(f"creating statistical visualization for {metric_name}")
             viz.plot_statistical_visualizations(
@@ -90,24 +97,18 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
                 output_path=output_path
             )
             artifacts.append(output_path)
-            
         elif viz_type == "radar":
-            # For radar chart, we need to extract metrics and labels
             metrics_dict = cfg.get("metrics_dict", {})
             if not metrics_dict:
-                # If metrics_dict not provided, try to extract from data
                 numeric_columns = data.select_dtypes(include=['float64', 'int64']).columns.tolist()
                 if len(numeric_columns) == 0:
                     _logger.error("no numeric columns found for radar chart")
                     return {"success": False, "error": "no numeric columns found for radar chart"}
-                
-                # Use means of numeric columns as metrics
                 metrics = [data[col].mean() for col in numeric_columns]
                 labels = numeric_columns
             else:
                 metrics = list(metrics_dict.values())
                 labels = list(metrics_dict.keys())
-            
             output_path = os.path.join(cfg["output_dir"], "radar_chart.png")
             _logger.info("creating radar chart")
             viz.plot_radar_chart(
@@ -116,19 +117,20 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
                 output_path=output_path
             )
             artifacts.append(output_path)
-            
         else:
             _logger.error(f"unknown visualization_type: {viz_type}")
             return {"success": False, "error": f"unknown visualization_type: {viz_type}"}
-        
         return {
             "success": True,
             "artifacts": artifacts
         }
-        
+    except (KeyError, ValueError, TypeError) as e:
+        _logger.error(f"Visualization error: {e}")
+        return {"success": False, "error": f"Visualization error: {e}"}
     except Exception as e:
-        _logger.error(f"error creating visualization: {e}")
-        return {"success": False, "error": f"error creating visualization: {e}"}
+        # Catch-all for unexpected errors
+        _logger.error(f"Unexpected error creating visualization: {e}")
+        return {"success": False, "error": f"Unexpected error creating visualization: {e}"}
 
 def run(argv=None):
     """
@@ -172,13 +174,13 @@ def run(argv=None):
     
     result = run_from_config(config)
     if not result["success"]:
-        print(f"ERROR: {result.get('error')}")
+        _logger.error(f"ERROR: {result.get('error')}")
         sys.exit(1)
         # Early return to avoid accessing artifacts that don't exist in error case
         return result
     
     # Only reach this point for successful results
-    print(f"Visualization(s) created: {', '.join(result['artifacts'])}")
+    _logger.info(f"Visualization(s) created: {', '.join(result['artifacts'])}")
     return result
 
 # Keep the original Visualization class for backward compatibility
@@ -227,7 +229,7 @@ class Visualization:
 
     def plot_radar_chart(self, metrics, labels, output_path=None):
         """Create a radar chart for multi-dimensional metrics."""
-        import numpy as np
+        import numpy as np  # type: ignore
         from math import pi
 
         num_vars = len(metrics)
@@ -235,12 +237,14 @@ class Visualization:
         angles += angles[:1]
 
         fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+        # The following methods are valid for polar axes in matplotlib
         ax.set_theta_offset(pi / 2)
         ax.set_theta_direction(-1)
 
         plt.xticks(angles[:-1], labels)
-        ax.plot(angles, metrics + metrics[:1], linewidth=2, linestyle='solid')
-        ax.fill(angles, metrics + metrics[:1], alpha=0.4)
+        values = metrics + metrics[:1]
+        ax.plot(angles, values, linewidth=2, linestyle='solid')
+        ax.fill(angles, values, alpha=0.4)
         if output_path:
             plt.savefig(output_path)
         plt.close()  # Close the figure to avoid displaying it

@@ -1,7 +1,7 @@
 import importlib
-from pathlib import Path
-from typing import Dict, Any, List
 import yaml
+from pathlib import Path
+from typing import Dict, Any, List, Callable, Optional
 
 from src.io import write_provenance
 from src.analytics.experiment_tracker import ExperimentTracker
@@ -17,27 +17,29 @@ _COMPONENT_MAP = {
 class Orchestrator:
     """Class for orchestrating experiments and analytics."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.tracker = ExperimentTracker()
         self.analytics = AnalyticsAPI()
 
-    def run_experiment(self, config, data):
+    def run_experiment(self, config: Any, data: Any) -> Any:
         """Run an experiment and track its results."""
+        import logging
+        logger = logging.getLogger("orchestrator")
         fingerprint = self.tracker.generate_fingerprint(config)
-        print(f"Experiment fingerprint: {fingerprint}")
+        logger.info(f"Experiment fingerprint: {fingerprint}")
 
         # Check if results already exist
         try:
             results = self.tracker.load_results(fingerprint)
-            print("Results already exist. Loading from cache.")
+            logger.info("Results already exist. Loading from cache.")
         except FileNotFoundError:
-            print("Running experiment...")
+            logger.info("Running experiment...")
             results = self.analytics.calculate_metrics(data)
             self.tracker.save_results(fingerprint, results)
 
         return results
 
-    def compare_experiments(self, fingerprints):
+    def compare_experiments(self, fingerprints: List[str]) -> Dict[str, Any]:
         """Compare results from multiple experiments."""
         results = [self.tracker.load_results(fp) for fp in fingerprints]
         # Example comparison logic (extend as needed)
@@ -45,7 +47,9 @@ class Orchestrator:
         return comparison
 
 
-def orchestrate(config_path: str) -> Dict[str, Any]:
+from typing import Callable, Optional
+
+def orchestrate(config_path: str | Path, progress_callback: Optional[Callable[[int, int, str], None]] = None) -> Dict[str, Any]:
     """
     Load YAML config and execute listed steps sequentially.
 
@@ -60,7 +64,8 @@ def orchestrate(config_path: str) -> Dict[str, Any]:
 
     Returns dict: {"success": bool, "artifacts": [...], "errors": [...]}
     """
-    config_path = Path(config_path)
+    if not isinstance(config_path, Path):
+        config_path = Path(config_path)
     if not config_path.exists():
         return {"success": False, "artifacts": [], "errors": [f"config not found: {config_path}"]}
 
@@ -71,11 +76,16 @@ def orchestrate(config_path: str) -> Dict[str, Any]:
     artifacts: List[str] = []
     errors: List[str] = []
 
-    for step in steps:
+    total_steps = len(steps)
+    for idx, step in enumerate(steps):
         name = step.get("name") or step.get("component") or "<unnamed>"
         comp = step.get("component")
         module_path = step.get("module") or _COMPONENT_MAP.get(comp)
         step_cfg = step.get("config", {})
+
+        # Progress callback before each step
+        if progress_callback:
+            progress_callback(idx, total_steps, f"Starting step {idx+1}/{total_steps}: {name}")
 
         if not module_path:
             errors.append(f"{name}: unknown component and no module provided")
@@ -110,5 +120,8 @@ def orchestrate(config_path: str) -> Dict[str, Any]:
             artifacts.append(art)
             if meta:
                 artifacts.append(meta)
+        # Progress callback after each step (optional)
+        if progress_callback:
+            progress_callback(idx + 1, total_steps, f"Finished step {idx+1}/{total_steps}: {name}")
 
     return {"success": len(errors) == 0, "artifacts": artifacts, "errors": errors}

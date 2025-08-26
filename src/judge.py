@@ -142,3 +142,8 @@ def run(argv: Optional[List[str]] = None) -> int:
     cfg = {"input_csv": args.input, "output_csv": args.output, "template_dir": args.template_dir}
     res = run_from_config(cfg)
     return 0 if res.get("success") else 4
+
+# Main guard for direct execution
+if __name__ == "__main__":
+    import sys
+    sys.exit(run())

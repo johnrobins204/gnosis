@@ -4259,3 +4259,2228 @@ Traceback (most recent call last):
   File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
     raise ValueError("fail!")
 ValueError: fail!
+2025-08-22 15:23:06,826 ERROR analytics.addin Add-in FailingAddin failed: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 13, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-22 15:23:09,856 ERROR visualization missing config key: input_csv
+2025-08-22 15:23:09,856 ERROR visualization missing config key: output_dir
+2025-08-22 15:23:09,856 ERROR visualization missing config key: visualization_type
+2025-08-22 15:23:09,857 INFO visualization loading input_csv: nonexistent.csv
+2025-08-22 15:23:09,858 ERROR visualization failed to load input_csv: File not found
+2025-08-22 15:23:09,859 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,859 ERROR visualization input data is empty
+2025-08-22 15:23:09,862 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,862 INFO visualization creating comparative visualization for score
+2025-08-22 15:23:09,866 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,866 INFO visualization creating statistical visualization for score
+2025-08-22 15:23:09,872 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,874 INFO visualization creating radar chart
+2025-08-22 15:23:09,877 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,878 ERROR visualization unknown visualization_type: unknown
+2025-08-22 15:23:09,880 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,880 ERROR visualization metric_name is required for comparative visualization
+2025-08-22 15:23:09,880 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,881 ERROR visualization metric_name is required for statistical visualization
+2025-08-22 15:23:09,882 INFO visualization loading input_csv: input.csv
+2025-08-22 15:23:09,883 ERROR visualization no numeric columns found for radar chart
+2025-08-22 15:23:10,163 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 15:23:10,164 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 15:23:10,164 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-22 15:23:10,164 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 15:23:10,165 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 15:23:10,167 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 15:23:10,168 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 15:23:10,168 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-22 15:23:10,170 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 15:23:10,171 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 15:23:10,173 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-22 15:23:10,173 ERROR inference missing config key: input_csv
+2025-08-22 15:23:10,173 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-22 15:23:10,173 ERROR inference missing config key: output_csv
+2025-08-22 15:23:10,174 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 15:23:10,175 ERROR inference input CSV missing required 'prompt' column
+2025-08-22 15:23:10,176 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 15:23:10,176 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 15:23:10,180 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 15:23:10,181 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 15:23:10,181 INFO src.io Wrote dataframe to /tmp/tmp36a3lg1f.csv (rows=1)
+2025-08-22 15:23:10,182 INFO inference run_from_config inference finished, wrote /tmp/tmp36a3lg1f.csv (rows=1) duration=0.00s
+2025-08-22 15:23:10,186 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-22 15:23:10,189 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 15:23:10,190 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-22 15:23:10,193 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 15:23:10,194 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 15:23:10,195 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 15:23:10,195 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 15:23:10,197 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-22 15:23:10,197 ERROR judge missing config key: input_csv
+2025-08-22 15:23:10,197 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-22 15:23:10,197 ERROR judge missing config key: output_csv
+2025-08-22 15:23:10,197 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-22 15:23:10,197 ERROR judge missing config key: template_dir
+2025-08-22 15:23:10,198 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 15:23:10,198 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 15:23:10,202 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 15:23:10,204 INFO src.io Wrote dataframe to /tmp/tmpg0s6r0k6.csv (rows=1)
+2025-08-22 15:23:10,204 INFO judge run_from_config judge finished, wrote /tmp/tmpg0s6r0k6.csv (rows=1) duration=0.00s
+2025-08-22 15:23:10,208 INFO analytics loading input_csv: ratings.csv
+2025-08-22 15:23:10,209 INFO analytics aggregating data by ['model']
+2025-08-22 15:23:10,210 INFO analytics writing output to analysis.csv
+2025-08-22 15:23:10,220 INFO analytics loading input_csv: ratings.csv
+2025-08-22 15:23:10,220 INFO analytics aggregating data by ['model']
+2025-08-22 15:23:10,221 INFO analytics writing output to analysis.csv
+2025-08-22 15:23:10,230 ERROR analytics missing config key: input_csv
+2025-08-22 15:23:10,230 ERROR analytics missing config key: output_csv
+2025-08-22 15:23:10,230 ERROR analytics missing config key: group_by
+2025-08-22 15:23:10,231 INFO analytics loading input_csv: input.csv
+2025-08-22 15:23:10,232 ERROR analytics input data is empty
+2025-08-22 15:23:10,233 INFO analytics loading input_csv: nonexistent.csv
+2025-08-22 15:23:10,233 ERROR analytics failed to load input_csv: File not found
+2025-08-22 15:23:10,235 INFO analytics loading input_csv: /tmp/tmpi6mmougb.csv
+2025-08-22 15:23:10,236 INFO analytics aggregating data by ['model']
+2025-08-22 15:23:10,238 INFO analytics writing output to /tmp/tmpatpk6kg8.csv
+2025-08-22 15:23:10,238 INFO src.io Wrote dataframe to /tmp/tmpatpk6kg8.csv (rows=0)
+2025-08-22 15:23:10,260 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-22 15:23:10,262 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 15:23:10,262 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 15:23:10,262 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 15:23:10,262 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 15:23:10,263 INFO src.io Wrote dataframe to /tmp/tmpy0uigtu4/completions.csv (rows=4)
+2025-08-22 15:23:10,263 INFO inference run_from_config inference finished, wrote /tmp/tmpy0uigtu4/completions.csv (rows=4) duration=0.00s
+2025-08-22 15:23:10,263 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 15:23:10,266 INFO src.io Wrote dataframe to /tmp/tmpy0uigtu4/ratings.csv (rows=4)
+2025-08-22 15:23:10,266 INFO judge run_from_config judge finished, wrote /tmp/tmpy0uigtu4/ratings.csv (rows=4) duration=0.00s
+2025-08-22 15:23:10,267 INFO analytics loading input_csv: /tmp/tmpy0uigtu4/ratings.csv
+2025-08-22 15:23:10,268 INFO analytics aggregating data by ['model']
+2025-08-22 15:23:10,269 INFO analytics writing output to /tmp/tmpy0uigtu4/analysis.csv
+2025-08-22 15:23:10,269 INFO src.io Wrote dataframe to /tmp/tmpy0uigtu4/analysis.csv (rows=0)
+2025-08-22 15:23:10,278 INFO visualization loading input_csv: /tmp/tmpoza3r3y6.csv
+2025-08-22 15:23:10,279 INFO visualization creating comparative visualization for score
+2025-08-22 15:23:10,491 INFO visualization loading input_csv: /tmp/tmpoza3r3y6.csv
+2025-08-22 15:23:10,492 INFO visualization creating radar chart
+2025-08-22 20:07:14,175 ERROR analytics.addin Add-in FailingAddin failed: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 13, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-22 20:07:17,319 ERROR visualization missing config key: input_csv
+2025-08-22 20:07:17,319 ERROR visualization missing config key: output_dir
+2025-08-22 20:07:17,319 ERROR visualization missing config key: visualization_type
+2025-08-22 20:07:17,320 INFO visualization loading input_csv: nonexistent.csv
+2025-08-22 20:07:17,320 ERROR visualization failed to load input_csv: File not found
+2025-08-22 20:07:17,321 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,321 ERROR visualization input data is empty
+2025-08-22 20:07:17,325 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,325 INFO visualization creating comparative visualization for score
+2025-08-22 20:07:17,330 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,330 INFO visualization creating statistical visualization for score
+2025-08-22 20:07:17,334 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,335 INFO visualization creating radar chart
+2025-08-22 20:07:17,337 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,338 ERROR visualization unknown visualization_type: unknown
+2025-08-22 20:07:17,339 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,340 ERROR visualization metric_name is required for comparative visualization
+2025-08-22 20:07:17,340 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,340 ERROR visualization metric_name is required for statistical visualization
+2025-08-22 20:07:17,342 INFO visualization loading input_csv: input.csv
+2025-08-22 20:07:17,343 ERROR visualization no numeric columns found for radar chart
+2025-08-22 20:07:17,719 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:07:17,720 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:07:17,720 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-22 20:07:17,720 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:07:17,721 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:07:17,723 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:07:17,724 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:07:17,724 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-22 20:07:17,727 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:07:17,728 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:07:17,729 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-22 20:07:17,730 ERROR inference missing config key: input_csv
+2025-08-22 20:07:17,730 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-22 20:07:17,730 ERROR inference missing config key: output_csv
+2025-08-22 20:07:17,731 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:07:17,731 ERROR inference input CSV missing required 'prompt' column
+2025-08-22 20:07:17,732 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:07:17,732 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:07:17,735 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:07:17,737 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:07:17,737 INFO src.io Wrote dataframe to /tmp/tmptm1zrvqz.csv (rows=1)
+2025-08-22 20:07:17,738 INFO inference run_from_config inference finished, wrote /tmp/tmptm1zrvqz.csv (rows=1) duration=0.00s
+2025-08-22 20:07:17,742 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-22 20:07:17,745 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:07:17,746 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-22 20:07:17,748 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:07:17,749 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:07:17,749 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:07:17,750 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:07:17,751 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-22 20:07:17,751 ERROR judge missing config key: input_csv
+2025-08-22 20:07:17,752 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-22 20:07:17,752 ERROR judge missing config key: output_csv
+2025-08-22 20:07:17,752 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-22 20:07:17,752 ERROR judge missing config key: template_dir
+2025-08-22 20:07:17,753 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:07:17,753 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:07:17,759 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:07:17,761 INFO src.io Wrote dataframe to /tmp/tmp5ypjecfu.csv (rows=1)
+2025-08-22 20:07:17,761 INFO judge run_from_config judge finished, wrote /tmp/tmp5ypjecfu.csv (rows=1) duration=0.00s
+2025-08-22 20:07:17,766 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:07:17,766 INFO analytics aggregating data by ['model']
+2025-08-22 20:07:17,772 INFO analytics writing output to analysis.csv
+2025-08-22 20:07:17,774 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:07:17,774 INFO analytics aggregating data by ['model']
+2025-08-22 20:07:17,780 INFO analytics writing output to analysis.csv
+2025-08-22 20:07:17,782 ERROR analytics missing config key: input_csv
+2025-08-22 20:07:17,782 ERROR analytics missing config key: output_csv
+2025-08-22 20:07:17,782 ERROR analytics missing config key: group_by
+2025-08-22 20:07:17,783 INFO analytics loading input_csv: input.csv
+2025-08-22 20:07:17,783 ERROR analytics input data is empty
+2025-08-22 20:07:17,784 INFO analytics loading input_csv: nonexistent.csv
+2025-08-22 20:07:17,784 ERROR analytics failed to load input_csv: File not found
+2025-08-22 20:07:17,786 INFO analytics loading input_csv: /tmp/tmpqvutg1kz.csv
+2025-08-22 20:07:17,788 INFO analytics aggregating data by ['model']
+2025-08-22 20:07:17,792 INFO analytics writing output to /tmp/tmpxvsbyvxc.csv
+2025-08-22 20:07:17,793 INFO src.io Wrote dataframe to /tmp/tmpxvsbyvxc.csv (rows=2)
+2025-08-22 20:07:18,207 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-22 20:07:18,209 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:07:18,209 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:07:18,209 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:07:18,209 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:07:18,210 INFO src.io Wrote dataframe to /tmp/tmpaougbeo0/completions.csv (rows=4)
+2025-08-22 20:07:18,210 INFO inference run_from_config inference finished, wrote /tmp/tmpaougbeo0/completions.csv (rows=4) duration=0.00s
+2025-08-22 20:07:18,210 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:07:18,212 INFO src.io Wrote dataframe to /tmp/tmpaougbeo0/ratings.csv (rows=4)
+2025-08-22 20:07:18,213 INFO judge run_from_config judge finished, wrote /tmp/tmpaougbeo0/ratings.csv (rows=4) duration=0.00s
+2025-08-22 20:07:18,214 INFO analytics loading input_csv: /tmp/tmpaougbeo0/ratings.csv
+2025-08-22 20:07:18,215 INFO analytics aggregating data by ['model']
+2025-08-22 20:07:18,221 INFO analytics writing output to /tmp/tmpaougbeo0/analysis.csv
+2025-08-22 20:07:18,222 INFO src.io Wrote dataframe to /tmp/tmpaougbeo0/analysis.csv (rows=2)
+2025-08-22 20:07:18,226 INFO visualization loading input_csv: /tmp/tmpx44sk12x.csv
+2025-08-22 20:07:18,227 INFO visualization creating comparative visualization for score
+2025-08-22 20:07:18,444 INFO visualization loading input_csv: /tmp/tmpx44sk12x.csv
+2025-08-22 20:07:18,446 INFO visualization creating radar chart
+2025-08-22 20:08:47,148 ERROR analytics.addin Add-in FailingAddin failed: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 13, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-22 20:08:51,498 ERROR visualization missing config key: input_csv
+2025-08-22 20:08:51,499 ERROR visualization missing config key: output_dir
+2025-08-22 20:08:51,499 ERROR visualization missing config key: visualization_type
+2025-08-22 20:08:51,500 INFO visualization loading input_csv: nonexistent.csv
+2025-08-22 20:08:51,500 ERROR visualization failed to load input_csv: File not found
+2025-08-22 20:08:51,501 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,502 ERROR visualization input data is empty
+2025-08-22 20:08:51,505 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,505 INFO visualization creating comparative visualization for score
+2025-08-22 20:08:51,511 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,512 INFO visualization creating statistical visualization for score
+2025-08-22 20:08:51,516 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,517 INFO visualization creating radar chart
+2025-08-22 20:08:51,519 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,521 ERROR visualization unknown visualization_type: unknown
+2025-08-22 20:08:51,522 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,523 ERROR visualization metric_name is required for comparative visualization
+2025-08-22 20:08:51,523 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,523 ERROR visualization metric_name is required for statistical visualization
+2025-08-22 20:08:51,525 INFO visualization loading input_csv: input.csv
+2025-08-22 20:08:51,527 ERROR visualization no numeric columns found for radar chart
+2025-08-22 20:08:51,918 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:08:51,919 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:08:51,919 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-22 20:08:51,919 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:08:51,920 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:08:51,923 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:08:51,923 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:08:51,923 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-22 20:08:51,926 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:08:51,926 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:08:51,928 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-22 20:08:51,928 ERROR inference missing config key: input_csv
+2025-08-22 20:08:51,928 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-22 20:08:51,929 ERROR inference missing config key: output_csv
+2025-08-22 20:08:51,930 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:08:51,930 ERROR inference input CSV missing required 'prompt' column
+2025-08-22 20:08:51,932 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:08:51,932 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:08:51,935 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:08:51,936 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:08:51,937 INFO src.io Wrote dataframe to /tmp/tmp6gx6ijrs.csv (rows=1)
+2025-08-22 20:08:51,937 INFO inference run_from_config inference finished, wrote /tmp/tmp6gx6ijrs.csv (rows=1) duration=0.00s
+2025-08-22 20:08:51,940 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-22 20:08:51,943 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:08:51,944 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-22 20:08:51,947 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:08:51,948 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:08:51,948 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:08:51,949 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:08:51,950 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-22 20:08:51,950 ERROR judge missing config key: input_csv
+2025-08-22 20:08:51,950 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-22 20:08:51,950 ERROR judge missing config key: output_csv
+2025-08-22 20:08:51,950 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-22 20:08:51,951 ERROR judge missing config key: template_dir
+2025-08-22 20:08:51,952 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:08:51,952 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:08:51,955 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:08:51,957 INFO src.io Wrote dataframe to /tmp/tmp38z94gy8.csv (rows=1)
+2025-08-22 20:08:51,957 INFO judge run_from_config judge finished, wrote /tmp/tmp38z94gy8.csv (rows=1) duration=0.00s
+2025-08-22 20:08:51,961 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:08:51,962 INFO analytics aggregating data by ['model']
+2025-08-22 20:08:51,967 INFO analytics writing output to analysis.csv
+2025-08-22 20:08:51,970 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:08:51,970 INFO analytics aggregating data by ['model']
+2025-08-22 20:08:51,974 INFO analytics writing output to analysis.csv
+2025-08-22 20:08:51,976 ERROR analytics missing config key: input_csv
+2025-08-22 20:08:51,976 ERROR analytics missing config key: output_csv
+2025-08-22 20:08:51,976 ERROR analytics missing config key: group_by
+2025-08-22 20:08:51,978 INFO analytics loading input_csv: input.csv
+2025-08-22 20:08:51,978 ERROR analytics input data is empty
+2025-08-22 20:08:51,980 INFO analytics loading input_csv: nonexistent.csv
+2025-08-22 20:08:51,980 ERROR analytics failed to load input_csv: File not found
+2025-08-22 20:08:51,982 INFO analytics loading input_csv: /tmp/tmpjz9f_heh.csv
+2025-08-22 20:08:51,983 INFO analytics aggregating data by ['model']
+2025-08-22 20:08:51,988 INFO analytics writing output to /tmp/tmp12_unyuk.csv
+2025-08-22 20:08:51,989 INFO src.io Wrote dataframe to /tmp/tmp12_unyuk.csv (rows=2)
+2025-08-22 20:08:52,013 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-22 20:08:52,014 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:08:52,015 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:08:52,015 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:08:52,015 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:08:52,016 INFO src.io Wrote dataframe to /tmp/tmpcl7h3rnd/completions.csv (rows=4)
+2025-08-22 20:08:52,016 INFO inference run_from_config inference finished, wrote /tmp/tmpcl7h3rnd/completions.csv (rows=4) duration=0.00s
+2025-08-22 20:08:52,016 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:08:52,018 INFO src.io Wrote dataframe to /tmp/tmpcl7h3rnd/ratings.csv (rows=4)
+2025-08-22 20:08:52,018 INFO judge run_from_config judge finished, wrote /tmp/tmpcl7h3rnd/ratings.csv (rows=4) duration=0.00s
+2025-08-22 20:08:52,019 INFO analytics loading input_csv: /tmp/tmpcl7h3rnd/ratings.csv
+2025-08-22 20:08:52,020 INFO analytics aggregating data by ['model']
+2025-08-22 20:08:52,025 INFO analytics writing output to /tmp/tmpcl7h3rnd/analysis.csv
+2025-08-22 20:08:52,026 INFO src.io Wrote dataframe to /tmp/tmpcl7h3rnd/analysis.csv (rows=2)
+2025-08-22 20:08:52,031 INFO visualization loading input_csv: /tmp/tmpgldxngit.csv
+2025-08-22 20:08:52,032 INFO visualization creating comparative visualization for score
+2025-08-22 20:08:52,243 INFO visualization loading input_csv: /tmp/tmpgldxngit.csv
+2025-08-22 20:08:52,245 INFO visualization creating radar chart
+2025-08-22 20:10:05,390 ERROR analytics.addin Add-in FailingAddin failed: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 13, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-22 20:10:07,320 ERROR visualization missing config key: input_csv
+2025-08-22 20:10:07,320 ERROR visualization missing config key: output_dir
+2025-08-22 20:10:07,321 ERROR visualization missing config key: visualization_type
+2025-08-22 20:10:07,322 INFO visualization loading input_csv: nonexistent.csv
+2025-08-22 20:10:07,322 ERROR visualization failed to load input_csv: File not found
+2025-08-22 20:10:07,323 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,323 ERROR visualization input data is empty
+2025-08-22 20:10:07,326 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,326 INFO visualization creating comparative visualization for score
+2025-08-22 20:10:07,330 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,330 INFO visualization creating statistical visualization for score
+2025-08-22 20:10:07,334 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,334 INFO visualization creating radar chart
+2025-08-22 20:10:07,336 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,337 ERROR visualization unknown visualization_type: unknown
+2025-08-22 20:10:07,339 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,339 ERROR visualization metric_name is required for comparative visualization
+2025-08-22 20:10:07,339 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,340 ERROR visualization metric_name is required for statistical visualization
+2025-08-22 20:10:07,341 INFO visualization loading input_csv: input.csv
+2025-08-22 20:10:07,342 ERROR visualization no numeric columns found for radar chart
+2025-08-22 20:10:07,667 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:10:07,667 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:10:07,668 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-22 20:10:07,668 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:10:07,669 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:10:07,673 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:10:07,674 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:10:07,675 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-22 20:10:07,676 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:10:07,677 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:10:07,680 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-22 20:10:07,680 ERROR inference missing config key: input_csv
+2025-08-22 20:10:07,680 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-22 20:10:07,680 ERROR inference missing config key: output_csv
+2025-08-22 20:10:07,682 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:10:07,682 ERROR inference input CSV missing required 'prompt' column
+2025-08-22 20:10:07,683 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:10:07,683 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:10:07,686 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:10:07,687 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:10:07,688 INFO src.io Wrote dataframe to /tmp/tmps068e9wv.csv (rows=1)
+2025-08-22 20:10:07,688 INFO inference run_from_config inference finished, wrote /tmp/tmps068e9wv.csv (rows=1) duration=0.00s
+2025-08-22 20:10:07,692 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-22 20:10:07,695 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:10:07,696 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-22 20:10:07,698 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:10:07,699 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:10:07,699 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:10:07,700 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:10:07,701 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-22 20:10:07,702 ERROR judge missing config key: input_csv
+2025-08-22 20:10:07,702 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-22 20:10:07,702 ERROR judge missing config key: output_csv
+2025-08-22 20:10:07,702 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-22 20:10:07,702 ERROR judge missing config key: template_dir
+2025-08-22 20:10:07,703 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:10:07,703 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:10:07,706 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:10:07,708 INFO src.io Wrote dataframe to /tmp/tmp7q8c_d8a.csv (rows=1)
+2025-08-22 20:10:07,708 INFO judge run_from_config judge finished, wrote /tmp/tmp7q8c_d8a.csv (rows=1) duration=0.00s
+2025-08-22 20:10:07,714 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:10:07,714 INFO analytics aggregating data by ['model']
+2025-08-22 20:10:07,720 INFO analytics writing output to analysis.csv
+2025-08-22 20:10:07,722 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:10:07,722 INFO analytics aggregating data by ['model']
+2025-08-22 20:10:07,728 INFO analytics writing output to analysis.csv
+2025-08-22 20:10:07,730 ERROR analytics missing config key: input_csv
+2025-08-22 20:10:07,730 ERROR analytics missing config key: output_csv
+2025-08-22 20:10:07,730 ERROR analytics missing config key: group_by
+2025-08-22 20:10:07,732 INFO analytics loading input_csv: input.csv
+2025-08-22 20:10:07,732 ERROR analytics input data is empty
+2025-08-22 20:10:07,733 INFO analytics loading input_csv: nonexistent.csv
+2025-08-22 20:10:07,733 ERROR analytics failed to load input_csv: File not found
+2025-08-22 20:10:07,736 INFO analytics loading input_csv: /tmp/tmp0fgkwf6q.csv
+2025-08-22 20:10:07,737 INFO analytics aggregating data by ['model']
+2025-08-22 20:10:07,741 INFO analytics writing output to /tmp/tmpykmkq0c2.csv
+2025-08-22 20:10:07,742 INFO src.io Wrote dataframe to /tmp/tmpykmkq0c2.csv (rows=2)
+2025-08-22 20:10:07,766 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-22 20:10:07,767 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:10:07,767 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:10:07,768 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:10:07,768 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:10:07,769 INFO src.io Wrote dataframe to /tmp/tmp539mr47_/completions.csv (rows=4)
+2025-08-22 20:10:07,769 INFO inference run_from_config inference finished, wrote /tmp/tmp539mr47_/completions.csv (rows=4) duration=0.00s
+2025-08-22 20:10:07,769 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:10:07,771 INFO src.io Wrote dataframe to /tmp/tmp539mr47_/ratings.csv (rows=4)
+2025-08-22 20:10:07,772 INFO judge run_from_config judge finished, wrote /tmp/tmp539mr47_/ratings.csv (rows=4) duration=0.00s
+2025-08-22 20:10:07,773 INFO analytics loading input_csv: /tmp/tmp539mr47_/ratings.csv
+2025-08-22 20:10:07,774 INFO analytics aggregating data by ['model']
+2025-08-22 20:10:07,778 INFO analytics writing output to /tmp/tmp539mr47_/analysis.csv
+2025-08-22 20:10:07,779 INFO src.io Wrote dataframe to /tmp/tmp539mr47_/analysis.csv (rows=2)
+2025-08-22 20:10:07,784 INFO visualization loading input_csv: /tmp/tmpaqikb0eh.csv
+2025-08-22 20:10:07,786 INFO visualization creating comparative visualization for score
+2025-08-22 20:10:07,989 INFO visualization loading input_csv: /tmp/tmpaqikb0eh.csv
+2025-08-22 20:10:07,991 INFO visualization creating radar chart
+2025-08-22 20:12:49,419 ERROR analytics.addin Add-in FailingAddin failed: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 13, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-22 20:12:51,002 ERROR visualization missing config key: input_csv
+2025-08-22 20:12:51,003 ERROR visualization missing config key: output_dir
+2025-08-22 20:12:51,003 ERROR visualization missing config key: visualization_type
+2025-08-22 20:12:51,004 INFO visualization loading input_csv: nonexistent.csv
+2025-08-22 20:12:51,004 ERROR visualization failed to load input_csv: File not found
+2025-08-22 20:12:51,005 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,005 ERROR visualization input data is empty
+2025-08-22 20:12:51,008 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,008 INFO visualization creating comparative visualization for score
+2025-08-22 20:12:51,012 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,012 INFO visualization creating statistical visualization for score
+2025-08-22 20:12:51,016 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,017 INFO visualization creating radar chart
+2025-08-22 20:12:51,019 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,020 ERROR visualization unknown visualization_type: unknown
+2025-08-22 20:12:51,021 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,021 ERROR visualization metric_name is required for comparative visualization
+2025-08-22 20:12:51,022 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,022 ERROR visualization metric_name is required for statistical visualization
+2025-08-22 20:12:51,023 INFO visualization loading input_csv: input.csv
+2025-08-22 20:12:51,024 ERROR visualization no numeric columns found for radar chart
+2025-08-22 20:12:51,398 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:12:51,398 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:12:51,398 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-22 20:12:51,399 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:12:51,399 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:12:51,401 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:12:51,402 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:12:51,402 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-22 20:12:51,403 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:12:51,403 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:12:51,405 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-22 20:12:51,405 ERROR inference missing config key: input_csv
+2025-08-22 20:12:51,405 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-22 20:12:51,405 ERROR inference missing config key: output_csv
+2025-08-22 20:12:51,406 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:12:51,407 ERROR inference input CSV missing required 'prompt' column
+2025-08-22 20:12:51,408 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:12:51,408 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:12:51,411 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:12:51,412 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:12:51,413 INFO src.io Wrote dataframe to /tmp/tmpg6b3564t.csv (rows=1)
+2025-08-22 20:12:51,413 INFO inference run_from_config inference finished, wrote /tmp/tmpg6b3564t.csv (rows=1) duration=0.00s
+2025-08-22 20:12:51,418 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-22 20:12:51,420 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:12:51,421 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-22 20:12:51,423 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:12:51,424 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:12:51,424 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:12:51,425 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:12:51,426 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-22 20:12:51,426 ERROR judge missing config key: input_csv
+2025-08-22 20:12:51,427 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-22 20:12:51,427 ERROR judge missing config key: output_csv
+2025-08-22 20:12:51,427 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-22 20:12:51,427 ERROR judge missing config key: template_dir
+2025-08-22 20:12:51,428 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:12:51,428 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:12:51,431 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:12:51,433 INFO src.io Wrote dataframe to /tmp/tmp4uyxxgxy.csv (rows=1)
+2025-08-22 20:12:51,434 INFO judge run_from_config judge finished, wrote /tmp/tmp4uyxxgxy.csv (rows=1) duration=0.00s
+2025-08-22 20:12:51,438 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:12:51,438 INFO analytics aggregating data by ['model']
+2025-08-22 20:12:51,443 INFO analytics writing output to analysis.csv
+2025-08-22 20:12:51,445 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:12:51,445 INFO analytics aggregating data by ['model']
+2025-08-22 20:12:51,452 INFO analytics writing output to analysis.csv
+2025-08-22 20:12:51,453 ERROR analytics missing config key: input_csv
+2025-08-22 20:12:51,454 ERROR analytics missing config key: output_csv
+2025-08-22 20:12:51,454 ERROR analytics missing config key: group_by
+2025-08-22 20:12:51,455 INFO analytics loading input_csv: input.csv
+2025-08-22 20:12:51,455 ERROR analytics input data is empty
+2025-08-22 20:12:51,456 INFO analytics loading input_csv: nonexistent.csv
+2025-08-22 20:12:51,456 ERROR analytics failed to load input_csv: File not found
+2025-08-22 20:12:51,458 INFO analytics loading input_csv: /tmp/tmp4fvsnda8.csv
+2025-08-22 20:12:51,460 INFO analytics aggregating data by ['model']
+2025-08-22 20:12:51,465 INFO analytics writing output to /tmp/tmp270lw5ib.csv
+2025-08-22 20:12:51,466 INFO src.io Wrote dataframe to /tmp/tmp270lw5ib.csv (rows=2)
+2025-08-22 20:12:51,489 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-22 20:12:51,490 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:12:51,490 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:12:51,491 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:12:51,491 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:12:51,492 INFO src.io Wrote dataframe to /tmp/tmps4erxe49/completions.csv (rows=4)
+2025-08-22 20:12:51,492 INFO inference run_from_config inference finished, wrote /tmp/tmps4erxe49/completions.csv (rows=4) duration=0.00s
+2025-08-22 20:12:51,492 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:12:51,495 INFO src.io Wrote dataframe to /tmp/tmps4erxe49/ratings.csv (rows=4)
+2025-08-22 20:12:51,495 INFO judge run_from_config judge finished, wrote /tmp/tmps4erxe49/ratings.csv (rows=4) duration=0.00s
+2025-08-22 20:12:51,496 INFO analytics loading input_csv: /tmp/tmps4erxe49/ratings.csv
+2025-08-22 20:12:51,498 INFO analytics aggregating data by ['model']
+2025-08-22 20:12:51,503 INFO analytics writing output to /tmp/tmps4erxe49/analysis.csv
+2025-08-22 20:12:51,503 INFO src.io Wrote dataframe to /tmp/tmps4erxe49/analysis.csv (rows=2)
+2025-08-22 20:12:51,507 INFO visualization loading input_csv: /tmp/tmp52p878bc.csv
+2025-08-22 20:12:51,508 INFO visualization creating comparative visualization for score
+2025-08-22 20:12:51,717 INFO visualization loading input_csv: /tmp/tmp52p878bc.csv
+2025-08-22 20:12:51,719 INFO visualization creating radar chart
+2025-08-22 20:15:01,937 ERROR analytics.addin Add-in FailingAddin failed: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 13, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-22 20:15:03,587 ERROR visualization missing config key: input_csv
+2025-08-22 20:15:03,588 ERROR visualization missing config key: output_dir
+2025-08-22 20:15:03,588 ERROR visualization missing config key: visualization_type
+2025-08-22 20:15:03,589 INFO visualization loading input_csv: nonexistent.csv
+2025-08-22 20:15:03,589 ERROR visualization failed to load input_csv: File not found
+2025-08-22 20:15:03,590 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,590 ERROR visualization input data is empty
+2025-08-22 20:15:03,592 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,592 INFO visualization creating comparative visualization for score
+2025-08-22 20:15:03,596 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,597 INFO visualization creating statistical visualization for score
+2025-08-22 20:15:03,601 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,601 INFO visualization creating radar chart
+2025-08-22 20:15:03,603 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,604 ERROR visualization unknown visualization_type: unknown
+2025-08-22 20:15:03,605 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,606 ERROR visualization metric_name is required for comparative visualization
+2025-08-22 20:15:03,606 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,606 ERROR visualization metric_name is required for statistical visualization
+2025-08-22 20:15:03,608 INFO visualization loading input_csv: input.csv
+2025-08-22 20:15:03,608 ERROR visualization no numeric columns found for radar chart
+2025-08-22 20:15:03,962 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:15:03,963 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:15:03,963 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-22 20:15:03,963 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:15:03,964 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:15:03,966 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:15:03,966 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-22 20:15:03,966 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-22 20:15:03,967 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-22 20:15:03,968 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-22 20:15:03,970 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-22 20:15:03,970 ERROR inference missing config key: input_csv
+2025-08-22 20:15:03,970 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-22 20:15:03,970 ERROR inference missing config key: output_csv
+2025-08-22 20:15:03,972 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:15:03,972 ERROR inference input CSV missing required 'prompt' column
+2025-08-22 20:15:03,974 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-22 20:15:03,974 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:15:03,977 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-22 20:15:03,978 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:15:03,979 INFO src.io Wrote dataframe to /tmp/tmpy0756xt6.csv (rows=1)
+2025-08-22 20:15:03,979 INFO inference run_from_config inference finished, wrote /tmp/tmpy0756xt6.csv (rows=1) duration=0.00s
+2025-08-22 20:15:03,983 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-22 20:15:03,986 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:15:03,987 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-22 20:15:03,989 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:15:03,990 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:15:03,990 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:15:03,991 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-22 20:15:03,993 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-22 20:15:03,994 ERROR judge missing config key: input_csv
+2025-08-22 20:15:03,994 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-22 20:15:03,994 ERROR judge missing config key: output_csv
+2025-08-22 20:15:03,994 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-22 20:15:03,994 ERROR judge missing config key: template_dir
+2025-08-22 20:15:03,996 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:15:03,996 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-22 20:15:03,999 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:15:04,001 INFO src.io Wrote dataframe to /tmp/tmpeycb08z6.csv (rows=1)
+2025-08-22 20:15:04,001 INFO judge run_from_config judge finished, wrote /tmp/tmpeycb08z6.csv (rows=1) duration=0.00s
+2025-08-22 20:15:04,006 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:15:04,006 INFO analytics aggregating data by ['model']
+2025-08-22 20:15:04,011 INFO analytics writing output to analysis.csv
+2025-08-22 20:15:04,013 INFO analytics loading input_csv: ratings.csv
+2025-08-22 20:15:04,013 INFO analytics aggregating data by ['model']
+2025-08-22 20:15:04,019 INFO analytics writing output to analysis.csv
+2025-08-22 20:15:04,021 ERROR analytics missing config key: input_csv
+2025-08-22 20:15:04,021 ERROR analytics missing config key: output_csv
+2025-08-22 20:15:04,021 ERROR analytics missing config key: group_by
+2025-08-22 20:15:04,022 INFO analytics loading input_csv: input.csv
+2025-08-22 20:15:04,022 ERROR analytics input data is empty
+2025-08-22 20:15:04,023 INFO analytics loading input_csv: nonexistent.csv
+2025-08-22 20:15:04,024 ERROR analytics failed to load input_csv: File not found
+2025-08-22 20:15:04,025 INFO analytics loading input_csv: /tmp/tmp2gs1pokt.csv
+2025-08-22 20:15:04,027 INFO analytics aggregating data by ['model']
+2025-08-22 20:15:04,032 INFO analytics writing output to /tmp/tmptqadbxhl.csv
+2025-08-22 20:15:04,033 INFO src.io Wrote dataframe to /tmp/tmptqadbxhl.csv (rows=2)
+2025-08-22 20:15:04,056 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-22 20:15:04,058 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:15:04,058 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-22 20:15:04,058 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:15:04,058 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-22 20:15:04,059 INFO src.io Wrote dataframe to /tmp/tmpjet_akbb/completions.csv (rows=4)
+2025-08-22 20:15:04,059 INFO inference run_from_config inference finished, wrote /tmp/tmpjet_akbb/completions.csv (rows=4) duration=0.00s
+2025-08-22 20:15:04,060 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-22 20:15:04,062 INFO src.io Wrote dataframe to /tmp/tmpjet_akbb/ratings.csv (rows=4)
+2025-08-22 20:15:04,062 INFO judge run_from_config judge finished, wrote /tmp/tmpjet_akbb/ratings.csv (rows=4) duration=0.00s
+2025-08-22 20:15:04,064 INFO analytics loading input_csv: /tmp/tmpjet_akbb/ratings.csv
+2025-08-22 20:15:04,065 INFO analytics aggregating data by ['model']
+2025-08-22 20:15:04,070 INFO analytics writing output to /tmp/tmpjet_akbb/analysis.csv
+2025-08-22 20:15:04,071 INFO src.io Wrote dataframe to /tmp/tmpjet_akbb/analysis.csv (rows=2)
+2025-08-22 20:15:04,075 INFO visualization loading input_csv: /tmp/tmporg12pai.csv
+2025-08-22 20:15:04,076 INFO visualization creating comparative visualization for score
+2025-08-22 20:15:04,285 INFO visualization loading input_csv: /tmp/tmporg12pai.csv
+2025-08-22 20:15:04,287 INFO visualization creating radar chart
+2025-08-23 18:38:29,408 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-23 18:38:29,408 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 18:59:02,512 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-0/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 18:59:17,148 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-1/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 18:59:36,008 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-2/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:00:08,701 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-3/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:00:27,066 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-4/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:01:39,388 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-5/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:03:19,321 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-6/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:04:11,232 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-7/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:04:11,237 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-7/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-7/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:15:46,714 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-8/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:15:46,722 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-8/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-8/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:25:12,633 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:25:12,633 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:25:16,678 ERROR visualization missing config key: input_csv
+2025-08-25 19:25:16,678 ERROR visualization missing config key: output_dir
+2025-08-25 19:25:16,678 ERROR visualization missing config key: visualization_type
+2025-08-25 19:25:16,680 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:25:16,680 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:25:57,735 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:25:57,735 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:26:01,074 ERROR visualization missing config key: input_csv
+2025-08-25 19:26:01,074 ERROR visualization missing config key: output_dir
+2025-08-25 19:26:01,074 ERROR visualization missing config key: visualization_type
+2025-08-25 19:26:01,075 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:26:01,076 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:35:04,809 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:35:04,809 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:35:07,019 ERROR visualization missing config key: input_csv
+2025-08-25 19:35:07,020 ERROR visualization missing config key: output_dir
+2025-08-25 19:35:07,020 ERROR visualization missing config key: visualization_type
+2025-08-25 19:35:07,021 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:35:07,021 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:35:07,027 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,027 ERROR visualization input data is empty
+2025-08-25 19:35:07,030 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,030 INFO visualization creating comparative visualization for score
+2025-08-25 19:35:07,035 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,035 INFO visualization creating statistical visualization for score
+2025-08-25 19:35:07,039 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,040 INFO visualization creating radar chart
+2025-08-25 19:35:07,042 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,043 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:35:07,045 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,046 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:35:07,046 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,047 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:35:07,048 INFO visualization loading input_csv: input.csv
+2025-08-25 19:35:07,049 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:35:07,167 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:35:07,169 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:35:07,170 ERROR visualization ERROR: File not found
+2025-08-25 19:35:07,255 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:35:07,255 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:35:07,256 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:35:07,256 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:35:07,256 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:35:07,259 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:35:07,259 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:35:07,259 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:35:07,261 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:35:07,262 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:35:07,264 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:35:07,264 ERROR inference missing config key: input_csv
+2025-08-25 19:35:07,264 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:35:07,264 ERROR inference missing config key: output_csv
+2025-08-25 19:35:07,266 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:35:07,266 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:35:07,267 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:35:07,267 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:35:07,270 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:35:07,271 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:35:07,272 INFO src.io Wrote dataframe to /tmp/tmp96ervf2o.csv (rows=1)
+2025-08-25 19:35:07,272 INFO inference run_from_config inference finished, wrote /tmp/tmp96ervf2o.csv (rows=1) duration=0.00s
+2025-08-25 19:35:07,275 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:35:07,278 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:35:07,279 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:35:07,281 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:35:07,282 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:35:07,282 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:35:07,283 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:35:07,284 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:35:07,284 ERROR judge missing config key: input_csv
+2025-08-25 19:35:07,284 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:35:07,284 ERROR judge missing config key: output_csv
+2025-08-25 19:35:07,284 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:35:07,285 ERROR judge missing config key: template_dir
+2025-08-25 19:35:07,286 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:35:07,286 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:35:07,288 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:35:07,290 INFO src.io Wrote dataframe to /tmp/tmpzvx829l1.csv (rows=1)
+2025-08-25 19:35:07,290 INFO judge run_from_config judge finished, wrote /tmp/tmpzvx829l1.csv (rows=1) duration=0.00s
+2025-08-25 19:35:07,293 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:35:07,294 INFO analytics aggregating data by ['model']
+2025-08-25 19:35:07,298 INFO analytics writing output to analysis.csv
+2025-08-25 19:35:07,301 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:35:07,301 INFO analytics aggregating data by ['model']
+2025-08-25 19:35:07,305 INFO analytics writing output to analysis.csv
+2025-08-25 19:35:07,307 ERROR analytics missing config key: input_csv
+2025-08-25 19:35:07,307 ERROR analytics missing config key: output_csv
+2025-08-25 19:35:07,307 ERROR analytics missing config key: group_by
+2025-08-25 19:35:07,309 INFO analytics loading input_csv: input.csv
+2025-08-25 19:35:07,309 ERROR analytics input data is empty
+2025-08-25 19:35:07,310 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:35:07,310 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:40:15,389 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:40:15,389 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:40:15,434 ERROR cli Config error: Missing required top-level key: 'study'
+2025-08-25 19:40:15,434 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:40:15,512 ERROR cli Config error: Missing required top-level key: 'study'
+2025-08-25 19:40:15,512 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:40:15,617 ERROR cli Config error: Missing required top-level key: 'study'
+2025-08-25 19:40:15,617 ERROR cli ERROR: File not found
+2025-08-25 19:40:15,617 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:40:18,058 ERROR visualization missing config key: input_csv
+2025-08-25 19:40:18,058 ERROR visualization missing config key: output_dir
+2025-08-25 19:40:18,058 ERROR visualization missing config key: visualization_type
+2025-08-25 19:40:18,059 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:40:18,059 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:40:18,060 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,060 ERROR visualization input data is empty
+2025-08-25 19:40:18,062 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,062 INFO visualization creating comparative visualization for score
+2025-08-25 19:40:18,065 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,065 INFO visualization creating statistical visualization for score
+2025-08-25 19:40:18,068 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,069 INFO visualization creating radar chart
+2025-08-25 19:40:18,071 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,072 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:40:18,074 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,074 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:40:18,074 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,075 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:40:18,076 INFO visualization loading input_csv: input.csv
+2025-08-25 19:40:18,077 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:40:18,222 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:40:18,224 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:40:18,226 ERROR visualization ERROR: File not found
+2025-08-25 19:40:18,343 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:40:18,343 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:40:18,343 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:40:18,344 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:40:18,345 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:40:18,348 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:40:18,348 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:40:18,349 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:40:18,349 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:40:18,350 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:40:18,351 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:40:18,351 ERROR inference missing config key: input_csv
+2025-08-25 19:40:18,351 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:40:18,351 ERROR inference missing config key: output_csv
+2025-08-25 19:40:18,353 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:40:18,353 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:40:18,354 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:40:18,355 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:40:18,358 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:40:18,359 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:40:18,360 INFO src.io Wrote dataframe to /tmp/tmpv11sae47.csv (rows=1)
+2025-08-25 19:40:18,361 INFO inference run_from_config inference finished, wrote /tmp/tmpv11sae47.csv (rows=1) duration=0.00s
+2025-08-25 19:40:18,366 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:40:18,369 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:40:18,371 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:40:18,373 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:40:18,374 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:40:18,374 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:40:18,375 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:40:18,376 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:40:18,377 ERROR judge missing config key: input_csv
+2025-08-25 19:40:18,377 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:40:18,377 ERROR judge missing config key: output_csv
+2025-08-25 19:40:18,377 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:40:18,377 ERROR judge missing config key: template_dir
+2025-08-25 19:40:18,379 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:40:18,379 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:40:18,382 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:40:18,385 INFO src.io Wrote dataframe to /tmp/tmps5690znj.csv (rows=1)
+2025-08-25 19:40:18,385 INFO judge run_from_config judge finished, wrote /tmp/tmps5690znj.csv (rows=1) duration=0.00s
+2025-08-25 19:40:18,389 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:40:18,389 INFO analytics aggregating data by ['model']
+2025-08-25 19:40:18,394 INFO analytics writing output to analysis.csv
+2025-08-25 19:40:18,396 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:40:18,397 INFO analytics aggregating data by ['model']
+2025-08-25 19:40:18,402 INFO analytics writing output to analysis.csv
+2025-08-25 19:40:18,404 ERROR analytics missing config key: input_csv
+2025-08-25 19:40:18,404 ERROR analytics missing config key: output_csv
+2025-08-25 19:40:18,405 ERROR analytics missing config key: group_by
+2025-08-25 19:40:18,406 INFO analytics loading input_csv: input.csv
+2025-08-25 19:40:18,406 ERROR analytics input data is empty
+2025-08-25 19:40:18,407 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:40:18,407 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:40:18,410 INFO analytics loading input_csv: /tmp/tmpsrovam4v.csv
+2025-08-25 19:40:18,411 INFO analytics aggregating data by ['model']
+2025-08-25 19:40:18,415 INFO analytics writing output to /tmp/tmp12hhnz25.csv
+2025-08-25 19:40:18,416 INFO src.io Wrote dataframe to /tmp/tmp12hhnz25.csv (rows=2)
+2025-08-25 19:40:18,437 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:40:18,438 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:40:18,438 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:40:18,439 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:40:18,439 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:40:18,439 INFO src.io Wrote dataframe to /tmp/tmpn3z3kuwe/completions.csv (rows=4)
+2025-08-25 19:40:18,439 INFO inference run_from_config inference finished, wrote /tmp/tmpn3z3kuwe/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:40:18,440 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:40:18,442 INFO src.io Wrote dataframe to /tmp/tmpn3z3kuwe/ratings.csv (rows=4)
+2025-08-25 19:40:18,442 INFO judge run_from_config judge finished, wrote /tmp/tmpn3z3kuwe/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:40:18,443 INFO analytics loading input_csv: /tmp/tmpn3z3kuwe/ratings.csv
+2025-08-25 19:40:18,444 INFO analytics aggregating data by ['model']
+2025-08-25 19:40:18,448 INFO analytics writing output to /tmp/tmpn3z3kuwe/analysis.csv
+2025-08-25 19:40:18,448 INFO src.io Wrote dataframe to /tmp/tmpn3z3kuwe/analysis.csv (rows=2)
+2025-08-25 19:40:18,453 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-12/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:40:18,458 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-12/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-12/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:40:18,460 INFO visualization loading input_csv: /tmp/tmp4f73zeyy.csv
+2025-08-25 19:40:18,461 INFO visualization creating comparative visualization for score
+2025-08-25 19:40:18,666 INFO visualization loading input_csv: /tmp/tmp4f73zeyy.csv
+2025-08-25 19:40:18,667 INFO visualization creating radar chart
+2025-08-25 19:40:18,814 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-12/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:40:18,818 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-12/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-12/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 19:41:41,534 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:41:41,534 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:41:41,581 ERROR cli Config error: 'study' must be a dictionary.
+2025-08-25 19:41:41,582 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:41:41,662 ERROR cli Config error: 'study' must be a dictionary.
+2025-08-25 19:41:41,662 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:41:41,767 ERROR cli Config error: 'study' must be a dictionary.
+2025-08-25 19:41:41,767 ERROR cli ERROR: File not found
+2025-08-25 19:41:41,767 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:41:43,402 ERROR visualization missing config key: input_csv
+2025-08-25 19:41:43,402 ERROR visualization missing config key: output_dir
+2025-08-25 19:41:43,402 ERROR visualization missing config key: visualization_type
+2025-08-25 19:41:43,403 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:41:43,403 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:41:43,405 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,405 ERROR visualization input data is empty
+2025-08-25 19:41:43,408 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,408 INFO visualization creating comparative visualization for score
+2025-08-25 19:41:43,412 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,412 INFO visualization creating statistical visualization for score
+2025-08-25 19:41:43,415 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,415 INFO visualization creating radar chart
+2025-08-25 19:41:43,418 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,418 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:41:43,420 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,420 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:41:43,420 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,421 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:41:43,422 INFO visualization loading input_csv: input.csv
+2025-08-25 19:41:43,423 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:41:43,540 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:41:43,542 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:41:43,544 ERROR visualization ERROR: File not found
+2025-08-25 19:41:43,634 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:41:43,634 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:41:43,634 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:41:43,634 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:41:43,635 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:41:43,639 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:41:43,639 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:41:43,640 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:41:43,640 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:41:43,641 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:41:43,642 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:41:43,643 ERROR inference missing config key: input_csv
+2025-08-25 19:41:43,643 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:41:43,643 ERROR inference missing config key: output_csv
+2025-08-25 19:41:43,644 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:41:43,644 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:41:43,645 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:41:43,645 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:41:43,648 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:41:43,649 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:41:43,650 INFO src.io Wrote dataframe to /tmp/tmpydeoptzo.csv (rows=1)
+2025-08-25 19:41:43,650 INFO inference run_from_config inference finished, wrote /tmp/tmpydeoptzo.csv (rows=1) duration=0.00s
+2025-08-25 19:41:43,653 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:41:43,656 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:41:43,657 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:41:43,659 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:41:43,660 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:41:43,660 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:41:43,661 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:41:43,662 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:41:43,662 ERROR judge missing config key: input_csv
+2025-08-25 19:41:43,662 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:41:43,662 ERROR judge missing config key: output_csv
+2025-08-25 19:41:43,662 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:41:43,662 ERROR judge missing config key: template_dir
+2025-08-25 19:41:43,663 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:41:43,663 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:41:43,666 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:41:43,667 INFO src.io Wrote dataframe to /tmp/tmpz89qlu1g.csv (rows=1)
+2025-08-25 19:41:43,667 INFO judge run_from_config judge finished, wrote /tmp/tmpz89qlu1g.csv (rows=1) duration=0.00s
+2025-08-25 19:41:43,671 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:41:43,671 INFO analytics aggregating data by ['model']
+2025-08-25 19:41:43,676 INFO analytics writing output to analysis.csv
+2025-08-25 19:41:43,678 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:41:43,678 INFO analytics aggregating data by ['model']
+2025-08-25 19:41:43,682 INFO analytics writing output to analysis.csv
+2025-08-25 19:41:43,683 ERROR analytics missing config key: input_csv
+2025-08-25 19:41:43,684 ERROR analytics missing config key: output_csv
+2025-08-25 19:41:43,684 ERROR analytics missing config key: group_by
+2025-08-25 19:41:43,685 INFO analytics loading input_csv: input.csv
+2025-08-25 19:41:43,685 ERROR analytics input data is empty
+2025-08-25 19:41:43,686 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:41:43,686 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:41:43,687 INFO analytics loading input_csv: /tmp/tmp3lsa4fod.csv
+2025-08-25 19:41:43,688 INFO analytics aggregating data by ['model']
+2025-08-25 19:41:43,693 INFO analytics writing output to /tmp/tmpf59lhuot.csv
+2025-08-25 19:41:43,694 INFO src.io Wrote dataframe to /tmp/tmpf59lhuot.csv (rows=2)
+2025-08-25 19:41:43,713 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:41:43,715 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:41:43,715 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:41:43,715 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:41:43,715 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:41:43,716 INFO src.io Wrote dataframe to /tmp/tmpa2bb5x_0/completions.csv (rows=4)
+2025-08-25 19:41:43,716 INFO inference run_from_config inference finished, wrote /tmp/tmpa2bb5x_0/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:41:43,716 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:41:43,718 INFO src.io Wrote dataframe to /tmp/tmpa2bb5x_0/ratings.csv (rows=4)
+2025-08-25 19:41:43,718 INFO judge run_from_config judge finished, wrote /tmp/tmpa2bb5x_0/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:41:43,719 INFO analytics loading input_csv: /tmp/tmpa2bb5x_0/ratings.csv
+2025-08-25 19:41:43,720 INFO analytics aggregating data by ['model']
+2025-08-25 19:41:43,724 INFO analytics writing output to /tmp/tmpa2bb5x_0/analysis.csv
+2025-08-25 19:41:43,724 INFO src.io Wrote dataframe to /tmp/tmpa2bb5x_0/analysis.csv (rows=2)
+2025-08-25 19:41:43,729 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-13/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:41:43,734 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-13/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-13/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:41:43,736 INFO visualization loading input_csv: /tmp/tmpql4jtft4.csv
+2025-08-25 19:41:43,737 INFO visualization creating comparative visualization for score
+2025-08-25 19:41:43,931 INFO visualization loading input_csv: /tmp/tmpql4jtft4.csv
+2025-08-25 19:41:43,933 INFO visualization creating radar chart
+2025-08-25 19:41:44,077 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-13/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:41:44,082 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-13/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-13/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 19:43:01,662 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:43:01,662 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:43:01,707 ERROR cli Config error: Missing required key: 'workflow' in 'study'
+2025-08-25 19:43:01,707 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:43:01,785 ERROR cli Config error: Missing required key: 'workflow' in 'study'
+2025-08-25 19:43:01,785 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:43:01,886 ERROR cli Config error: Missing required key: 'workflow' in 'study'
+2025-08-25 19:43:01,886 ERROR cli ERROR: File not found
+2025-08-25 19:43:01,886 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:43:03,570 ERROR visualization missing config key: input_csv
+2025-08-25 19:43:03,570 ERROR visualization missing config key: output_dir
+2025-08-25 19:43:03,570 ERROR visualization missing config key: visualization_type
+2025-08-25 19:43:03,571 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:43:03,572 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:43:03,573 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,573 ERROR visualization input data is empty
+2025-08-25 19:43:03,575 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,575 INFO visualization creating comparative visualization for score
+2025-08-25 19:43:03,577 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,578 INFO visualization creating statistical visualization for score
+2025-08-25 19:43:03,580 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,581 INFO visualization creating radar chart
+2025-08-25 19:43:03,582 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,583 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:43:03,585 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,585 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:43:03,585 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,585 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:43:03,587 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:03,587 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:43:03,705 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:43:03,707 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:43:03,709 ERROR visualization ERROR: File not found
+2025-08-25 19:43:03,796 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:43:03,796 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:43:03,797 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:43:03,797 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:43:03,797 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:43:03,800 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:43:03,801 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:43:03,801 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:43:03,801 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:43:03,802 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:43:03,803 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:43:03,803 ERROR inference missing config key: input_csv
+2025-08-25 19:43:03,803 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:43:03,803 ERROR inference missing config key: output_csv
+2025-08-25 19:43:03,805 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:43:03,805 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:43:03,807 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:43:03,807 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:43:03,810 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:43:03,812 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:43:03,813 INFO src.io Wrote dataframe to /tmp/tmpg7a6xwk_.csv (rows=1)
+2025-08-25 19:43:03,813 INFO inference run_from_config inference finished, wrote /tmp/tmpg7a6xwk_.csv (rows=1) duration=0.00s
+2025-08-25 19:43:03,816 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:43:03,818 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:03,819 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:43:03,821 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:03,822 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:43:03,822 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:03,823 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:43:03,824 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:43:03,824 ERROR judge missing config key: input_csv
+2025-08-25 19:43:03,824 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:43:03,824 ERROR judge missing config key: output_csv
+2025-08-25 19:43:03,825 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:43:03,825 ERROR judge missing config key: template_dir
+2025-08-25 19:43:03,826 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:03,826 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:43:03,828 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:03,830 INFO src.io Wrote dataframe to /tmp/tmp1_quex3o.csv (rows=1)
+2025-08-25 19:43:03,830 INFO judge run_from_config judge finished, wrote /tmp/tmp1_quex3o.csv (rows=1) duration=0.00s
+2025-08-25 19:43:03,833 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:43:03,834 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:03,838 INFO analytics writing output to analysis.csv
+2025-08-25 19:43:03,840 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:43:03,841 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:03,845 INFO analytics writing output to analysis.csv
+2025-08-25 19:43:03,847 ERROR analytics missing config key: input_csv
+2025-08-25 19:43:03,847 ERROR analytics missing config key: output_csv
+2025-08-25 19:43:03,847 ERROR analytics missing config key: group_by
+2025-08-25 19:43:03,848 INFO analytics loading input_csv: input.csv
+2025-08-25 19:43:03,848 ERROR analytics input data is empty
+2025-08-25 19:43:03,849 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:43:03,849 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:43:03,851 INFO analytics loading input_csv: /tmp/tmplojbb8rl.csv
+2025-08-25 19:43:03,851 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:03,855 INFO analytics writing output to /tmp/tmpegktler7.csv
+2025-08-25 19:43:03,856 INFO src.io Wrote dataframe to /tmp/tmpegktler7.csv (rows=2)
+2025-08-25 19:43:03,875 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:43:03,876 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:43:03,876 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:43:03,877 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:43:03,877 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:43:03,878 INFO src.io Wrote dataframe to /tmp/tmp7jvcvgxh/completions.csv (rows=4)
+2025-08-25 19:43:03,878 INFO inference run_from_config inference finished, wrote /tmp/tmp7jvcvgxh/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:43:03,878 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:03,880 INFO src.io Wrote dataframe to /tmp/tmp7jvcvgxh/ratings.csv (rows=4)
+2025-08-25 19:43:03,880 INFO judge run_from_config judge finished, wrote /tmp/tmp7jvcvgxh/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:43:03,881 INFO analytics loading input_csv: /tmp/tmp7jvcvgxh/ratings.csv
+2025-08-25 19:43:03,882 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:03,885 INFO analytics writing output to /tmp/tmp7jvcvgxh/analysis.csv
+2025-08-25 19:43:03,886 INFO src.io Wrote dataframe to /tmp/tmp7jvcvgxh/analysis.csv (rows=2)
+2025-08-25 19:43:03,889 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-14/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:43:03,894 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-14/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-14/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:43:03,896 INFO visualization loading input_csv: /tmp/tmptlot5p1s.csv
+2025-08-25 19:43:03,898 INFO visualization creating comparative visualization for score
+2025-08-25 19:43:04,091 INFO visualization loading input_csv: /tmp/tmptlot5p1s.csv
+2025-08-25 19:43:04,093 INFO visualization creating radar chart
+2025-08-25 19:43:04,245 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-14/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:43:04,251 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-14/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-14/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 19:43:40,167 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:43:40,167 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:43:40,210 ERROR cli Config error: 'workflow' must be a dictionary.
+2025-08-25 19:43:40,211 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:43:40,288 ERROR cli Config error: 'workflow' must be a dictionary.
+2025-08-25 19:43:40,289 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:43:40,393 ERROR cli Config error: 'workflow' must be a dictionary.
+2025-08-25 19:43:40,393 ERROR cli ERROR: File not found
+2025-08-25 19:43:40,393 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:43:42,110 ERROR visualization missing config key: input_csv
+2025-08-25 19:43:42,110 ERROR visualization missing config key: output_dir
+2025-08-25 19:43:42,110 ERROR visualization missing config key: visualization_type
+2025-08-25 19:43:42,111 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:43:42,111 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:43:42,112 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,112 ERROR visualization input data is empty
+2025-08-25 19:43:42,114 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,115 INFO visualization creating comparative visualization for score
+2025-08-25 19:43:42,118 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,118 INFO visualization creating statistical visualization for score
+2025-08-25 19:43:42,121 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,122 INFO visualization creating radar chart
+2025-08-25 19:43:42,124 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,124 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:43:42,125 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,126 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:43:42,126 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,126 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:43:42,127 INFO visualization loading input_csv: input.csv
+2025-08-25 19:43:42,128 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:43:42,247 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:43:42,249 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:43:42,250 ERROR visualization ERROR: File not found
+2025-08-25 19:43:42,355 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:43:42,356 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:43:42,357 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:43:42,357 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:43:42,358 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:43:42,360 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:43:42,361 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:43:42,361 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:43:42,362 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:43:42,362 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:43:42,364 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:43:42,364 ERROR inference missing config key: input_csv
+2025-08-25 19:43:42,364 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:43:42,364 ERROR inference missing config key: output_csv
+2025-08-25 19:43:42,366 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:43:42,366 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:43:42,368 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:43:42,368 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:43:42,371 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:43:42,373 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:43:42,374 INFO src.io Wrote dataframe to /tmp/tmp9h6zf379.csv (rows=1)
+2025-08-25 19:43:42,374 INFO inference run_from_config inference finished, wrote /tmp/tmp9h6zf379.csv (rows=1) duration=0.00s
+2025-08-25 19:43:42,379 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:43:42,382 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:42,384 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:43:42,386 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:42,387 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:43:42,387 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:42,388 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:43:42,390 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:43:42,390 ERROR judge missing config key: input_csv
+2025-08-25 19:43:42,390 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:43:42,390 ERROR judge missing config key: output_csv
+2025-08-25 19:43:42,390 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:43:42,390 ERROR judge missing config key: template_dir
+2025-08-25 19:43:42,392 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:42,392 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:43:42,395 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:42,396 INFO src.io Wrote dataframe to /tmp/tmpw3oo_sv2.csv (rows=1)
+2025-08-25 19:43:42,396 INFO judge run_from_config judge finished, wrote /tmp/tmpw3oo_sv2.csv (rows=1) duration=0.00s
+2025-08-25 19:43:42,400 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:43:42,400 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:42,404 INFO analytics writing output to analysis.csv
+2025-08-25 19:43:42,406 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:43:42,406 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:42,411 INFO analytics writing output to analysis.csv
+2025-08-25 19:43:42,413 ERROR analytics missing config key: input_csv
+2025-08-25 19:43:42,413 ERROR analytics missing config key: output_csv
+2025-08-25 19:43:42,413 ERROR analytics missing config key: group_by
+2025-08-25 19:43:42,414 INFO analytics loading input_csv: input.csv
+2025-08-25 19:43:42,414 ERROR analytics input data is empty
+2025-08-25 19:43:42,415 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:43:42,415 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:43:42,417 INFO analytics loading input_csv: /tmp/tmpj6r51q1v.csv
+2025-08-25 19:43:42,418 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:42,422 INFO analytics writing output to /tmp/tmpmfb77wmm.csv
+2025-08-25 19:43:42,423 INFO src.io Wrote dataframe to /tmp/tmpmfb77wmm.csv (rows=2)
+2025-08-25 19:43:42,444 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:43:42,445 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:43:42,445 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:43:42,446 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:43:42,446 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:43:42,447 INFO src.io Wrote dataframe to /tmp/tmpa89nv_va/completions.csv (rows=4)
+2025-08-25 19:43:42,447 INFO inference run_from_config inference finished, wrote /tmp/tmpa89nv_va/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:43:42,447 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:43:42,449 INFO src.io Wrote dataframe to /tmp/tmpa89nv_va/ratings.csv (rows=4)
+2025-08-25 19:43:42,449 INFO judge run_from_config judge finished, wrote /tmp/tmpa89nv_va/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:43:42,450 INFO analytics loading input_csv: /tmp/tmpa89nv_va/ratings.csv
+2025-08-25 19:43:42,451 INFO analytics aggregating data by ['model']
+2025-08-25 19:43:42,454 INFO analytics writing output to /tmp/tmpa89nv_va/analysis.csv
+2025-08-25 19:43:42,455 INFO src.io Wrote dataframe to /tmp/tmpa89nv_va/analysis.csv (rows=2)
+2025-08-25 19:43:42,458 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-15/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:43:42,464 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-15/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-15/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:43:42,466 INFO visualization loading input_csv: /tmp/tmpe9msc4to.csv
+2025-08-25 19:43:42,468 INFO visualization creating comparative visualization for score
+2025-08-25 19:43:42,663 INFO visualization loading input_csv: /tmp/tmpe9msc4to.csv
+2025-08-25 19:43:42,664 INFO visualization creating radar chart
+2025-08-25 19:43:42,905 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-15/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:43:42,910 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-15/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-15/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 19:44:10,419 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:44:10,419 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:44:10,463 ERROR cli Config error: Missing required key: 'steps' in 'workflow'
+2025-08-25 19:44:10,463 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:44:10,543 ERROR cli Config error: Missing required key: 'steps' in 'workflow'
+2025-08-25 19:44:10,543 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:44:10,645 ERROR cli Config error: Missing required key: 'steps' in 'workflow'
+2025-08-25 19:44:10,645 ERROR cli ERROR: File not found
+2025-08-25 19:44:10,646 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:44:11,449 ERROR visualization missing config key: input_csv
+2025-08-25 19:44:11,450 ERROR visualization missing config key: output_dir
+2025-08-25 19:44:11,450 ERROR visualization missing config key: visualization_type
+2025-08-25 19:44:11,451 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:44:11,451 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:44:11,452 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,452 ERROR visualization input data is empty
+2025-08-25 19:44:11,455 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,455 INFO visualization creating comparative visualization for score
+2025-08-25 19:44:11,458 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,458 INFO visualization creating statistical visualization for score
+2025-08-25 19:44:11,460 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,461 INFO visualization creating radar chart
+2025-08-25 19:44:11,462 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,463 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:44:11,465 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,465 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:44:11,465 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,466 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:44:11,467 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:11,467 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:44:11,586 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:44:11,588 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:44:11,589 ERROR visualization ERROR: File not found
+2025-08-25 19:44:11,678 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:44:11,678 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:44:11,678 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:44:11,679 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:44:11,679 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:44:11,681 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:44:11,681 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:44:11,681 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:44:11,682 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:44:11,682 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:44:11,684 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:44:11,684 ERROR inference missing config key: input_csv
+2025-08-25 19:44:11,684 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:44:11,684 ERROR inference missing config key: output_csv
+2025-08-25 19:44:11,686 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:44:11,686 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:44:11,687 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:44:11,688 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:44:11,690 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:44:11,691 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:44:11,692 INFO src.io Wrote dataframe to /tmp/tmpz9u62nba.csv (rows=1)
+2025-08-25 19:44:11,693 INFO inference run_from_config inference finished, wrote /tmp/tmpz9u62nba.csv (rows=1) duration=0.00s
+2025-08-25 19:44:11,696 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:44:11,699 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:11,700 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:44:11,701 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:11,702 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:44:11,702 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:11,703 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:44:11,704 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:44:11,704 ERROR judge missing config key: input_csv
+2025-08-25 19:44:11,704 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:44:11,704 ERROR judge missing config key: output_csv
+2025-08-25 19:44:11,705 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:44:11,705 ERROR judge missing config key: template_dir
+2025-08-25 19:44:11,706 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:11,706 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:44:11,708 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:11,710 INFO src.io Wrote dataframe to /tmp/tmpjmho1f9z.csv (rows=1)
+2025-08-25 19:44:11,710 INFO judge run_from_config judge finished, wrote /tmp/tmpjmho1f9z.csv (rows=1) duration=0.00s
+2025-08-25 19:44:11,714 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:44:11,714 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:11,718 INFO analytics writing output to analysis.csv
+2025-08-25 19:44:11,720 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:44:11,720 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:11,724 INFO analytics writing output to analysis.csv
+2025-08-25 19:44:11,725 ERROR analytics missing config key: input_csv
+2025-08-25 19:44:11,726 ERROR analytics missing config key: output_csv
+2025-08-25 19:44:11,726 ERROR analytics missing config key: group_by
+2025-08-25 19:44:11,727 INFO analytics loading input_csv: input.csv
+2025-08-25 19:44:11,727 ERROR analytics input data is empty
+2025-08-25 19:44:11,728 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:44:11,728 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:44:11,730 INFO analytics loading input_csv: /tmp/tmpwa248hlf.csv
+2025-08-25 19:44:11,731 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:11,735 INFO analytics writing output to /tmp/tmpndtmg6mp.csv
+2025-08-25 19:44:11,736 INFO src.io Wrote dataframe to /tmp/tmpndtmg6mp.csv (rows=2)
+2025-08-25 19:44:11,755 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:44:11,756 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:44:11,757 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:44:11,757 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:44:11,757 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:44:11,758 INFO src.io Wrote dataframe to /tmp/tmp50rhe928/completions.csv (rows=4)
+2025-08-25 19:44:11,758 INFO inference run_from_config inference finished, wrote /tmp/tmp50rhe928/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:44:11,758 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:11,760 INFO src.io Wrote dataframe to /tmp/tmp50rhe928/ratings.csv (rows=4)
+2025-08-25 19:44:11,760 INFO judge run_from_config judge finished, wrote /tmp/tmp50rhe928/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:44:11,761 INFO analytics loading input_csv: /tmp/tmp50rhe928/ratings.csv
+2025-08-25 19:44:11,762 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:11,766 INFO analytics writing output to /tmp/tmp50rhe928/analysis.csv
+2025-08-25 19:44:11,767 INFO src.io Wrote dataframe to /tmp/tmp50rhe928/analysis.csv (rows=2)
+2025-08-25 19:44:11,770 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-16/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:44:11,776 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-16/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-16/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:44:11,778 INFO visualization loading input_csv: /tmp/tmprp71f2ps.csv
+2025-08-25 19:44:11,780 INFO visualization creating comparative visualization for score
+2025-08-25 19:44:11,987 INFO visualization loading input_csv: /tmp/tmprp71f2ps.csv
+2025-08-25 19:44:11,989 INFO visualization creating radar chart
+2025-08-25 19:44:12,137 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-16/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:44:12,141 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-16/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-16/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 19:44:38,164 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:44:38,164 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:44:38,205 ERROR cli Config error: Step 0 missing required key: 'component'.
+2025-08-25 19:44:38,206 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:44:38,280 ERROR cli Config error: Step 0 missing required key: 'component'.
+2025-08-25 19:44:38,280 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:44:38,381 ERROR cli Config error: Step 0 missing required key: 'component'.
+2025-08-25 19:44:38,382 ERROR cli ERROR: File not found
+2025-08-25 19:44:38,382 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:44:39,751 ERROR visualization missing config key: input_csv
+2025-08-25 19:44:39,751 ERROR visualization missing config key: output_dir
+2025-08-25 19:44:39,751 ERROR visualization missing config key: visualization_type
+2025-08-25 19:44:39,752 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:44:39,752 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:44:39,753 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,753 ERROR visualization input data is empty
+2025-08-25 19:44:39,755 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,755 INFO visualization creating comparative visualization for score
+2025-08-25 19:44:39,759 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,759 INFO visualization creating statistical visualization for score
+2025-08-25 19:44:39,762 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,763 INFO visualization creating radar chart
+2025-08-25 19:44:39,765 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,765 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:44:39,766 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,767 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:44:39,767 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,767 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:44:39,769 INFO visualization loading input_csv: input.csv
+2025-08-25 19:44:39,769 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:44:39,888 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:44:39,890 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:44:39,891 ERROR visualization ERROR: File not found
+2025-08-25 19:44:39,983 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:44:39,984 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:44:39,984 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:44:39,984 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:44:39,985 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:44:39,987 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:44:39,988 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:44:39,988 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:44:39,988 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:44:39,989 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:44:39,990 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:44:39,990 ERROR inference missing config key: input_csv
+2025-08-25 19:44:39,990 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:44:39,990 ERROR inference missing config key: output_csv
+2025-08-25 19:44:39,993 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:44:39,993 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:44:39,994 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:44:39,994 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:44:39,997 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:44:39,998 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:44:39,999 INFO src.io Wrote dataframe to /tmp/tmpw2aiogva.csv (rows=1)
+2025-08-25 19:44:39,999 INFO inference run_from_config inference finished, wrote /tmp/tmpw2aiogva.csv (rows=1) duration=0.00s
+2025-08-25 19:44:40,003 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:44:40,005 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:40,006 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:44:40,008 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:40,009 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:44:40,009 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:40,009 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:44:40,011 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:44:40,011 ERROR judge missing config key: input_csv
+2025-08-25 19:44:40,011 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:44:40,011 ERROR judge missing config key: output_csv
+2025-08-25 19:44:40,011 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:44:40,011 ERROR judge missing config key: template_dir
+2025-08-25 19:44:40,012 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:40,012 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:44:40,015 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:40,017 INFO src.io Wrote dataframe to /tmp/tmpv97kwznp.csv (rows=1)
+2025-08-25 19:44:40,017 INFO judge run_from_config judge finished, wrote /tmp/tmpv97kwznp.csv (rows=1) duration=0.00s
+2025-08-25 19:44:40,021 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:44:40,021 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:40,025 INFO analytics writing output to analysis.csv
+2025-08-25 19:44:40,027 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:44:40,027 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:40,031 INFO analytics writing output to analysis.csv
+2025-08-25 19:44:40,033 ERROR analytics missing config key: input_csv
+2025-08-25 19:44:40,033 ERROR analytics missing config key: output_csv
+2025-08-25 19:44:40,033 ERROR analytics missing config key: group_by
+2025-08-25 19:44:40,034 INFO analytics loading input_csv: input.csv
+2025-08-25 19:44:40,034 ERROR analytics input data is empty
+2025-08-25 19:44:40,035 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:44:40,036 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:44:40,037 INFO analytics loading input_csv: /tmp/tmpx_4j65qm.csv
+2025-08-25 19:44:40,038 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:40,042 INFO analytics writing output to /tmp/tmpanl_11o9.csv
+2025-08-25 19:44:40,043 INFO src.io Wrote dataframe to /tmp/tmpanl_11o9.csv (rows=2)
+2025-08-25 19:44:40,063 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:44:40,065 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:44:40,065 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:44:40,065 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:44:40,065 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:44:40,066 INFO src.io Wrote dataframe to /tmp/tmpx3q4vx0v/completions.csv (rows=4)
+2025-08-25 19:44:40,066 INFO inference run_from_config inference finished, wrote /tmp/tmpx3q4vx0v/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:44:40,066 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:44:40,068 INFO src.io Wrote dataframe to /tmp/tmpx3q4vx0v/ratings.csv (rows=4)
+2025-08-25 19:44:40,068 INFO judge run_from_config judge finished, wrote /tmp/tmpx3q4vx0v/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:44:40,070 INFO analytics loading input_csv: /tmp/tmpx3q4vx0v/ratings.csv
+2025-08-25 19:44:40,071 INFO analytics aggregating data by ['model']
+2025-08-25 19:44:40,074 INFO analytics writing output to /tmp/tmpx3q4vx0v/analysis.csv
+2025-08-25 19:44:40,075 INFO src.io Wrote dataframe to /tmp/tmpx3q4vx0v/analysis.csv (rows=2)
+2025-08-25 19:44:40,078 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-17/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:44:40,083 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-17/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-17/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:44:40,086 INFO visualization loading input_csv: /tmp/tmp_equq7z8.csv
+2025-08-25 19:44:40,087 INFO visualization creating comparative visualization for score
+2025-08-25 19:44:40,283 INFO visualization loading input_csv: /tmp/tmp_equq7z8.csv
+2025-08-25 19:44:40,286 INFO visualization creating radar chart
+2025-08-25 19:44:40,434 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-17/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:44:40,440 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-17/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-17/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 19:45:10,790 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:45:10,790 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:45:10,836 ERROR cli Config error: Step 0 missing required key: 'config'.
+2025-08-25 19:45:10,836 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:45:10,915 ERROR cli Config error: Step 0 missing required key: 'config'.
+2025-08-25 19:45:10,915 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:45:11,022 ERROR cli Config error: Step 0 missing required key: 'config'.
+2025-08-25 19:45:11,022 ERROR cli ERROR: File not found
+2025-08-25 19:45:11,022 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:45:13,225 ERROR visualization missing config key: input_csv
+2025-08-25 19:45:13,225 ERROR visualization missing config key: output_dir
+2025-08-25 19:45:13,225 ERROR visualization missing config key: visualization_type
+2025-08-25 19:45:13,226 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:45:13,226 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:45:13,227 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,228 ERROR visualization input data is empty
+2025-08-25 19:45:13,229 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,230 INFO visualization creating comparative visualization for score
+2025-08-25 19:45:13,233 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,233 INFO visualization creating statistical visualization for score
+2025-08-25 19:45:13,236 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,237 INFO visualization creating radar chart
+2025-08-25 19:45:13,238 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,239 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:45:13,240 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,240 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:45:13,240 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,241 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:45:13,242 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:13,242 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:45:13,385 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:45:13,388 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:45:13,389 ERROR visualization ERROR: File not found
+2025-08-25 19:45:13,510 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:45:13,510 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:45:13,510 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:45:13,511 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:45:13,511 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:45:13,514 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:45:13,515 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:45:13,515 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:45:13,516 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:45:13,516 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:45:13,519 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:45:13,519 ERROR inference missing config key: input_csv
+2025-08-25 19:45:13,519 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:45:13,519 ERROR inference missing config key: output_csv
+2025-08-25 19:45:13,521 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:45:13,521 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:45:13,523 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:45:13,523 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:45:13,527 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:45:13,528 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:45:13,529 INFO src.io Wrote dataframe to /tmp/tmpj4rtyop8.csv (rows=1)
+2025-08-25 19:45:13,529 INFO inference run_from_config inference finished, wrote /tmp/tmpj4rtyop8.csv (rows=1) duration=0.00s
+2025-08-25 19:45:13,534 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:45:13,537 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:13,539 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:45:13,541 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:13,542 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:45:13,542 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:13,543 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:45:13,544 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:45:13,545 ERROR judge missing config key: input_csv
+2025-08-25 19:45:13,545 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:45:13,545 ERROR judge missing config key: output_csv
+2025-08-25 19:45:13,545 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:45:13,545 ERROR judge missing config key: template_dir
+2025-08-25 19:45:13,546 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:13,546 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:45:13,549 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:13,552 INFO src.io Wrote dataframe to /tmp/tmpkk1lpv6i.csv (rows=1)
+2025-08-25 19:45:13,552 INFO judge run_from_config judge finished, wrote /tmp/tmpkk1lpv6i.csv (rows=1) duration=0.00s
+2025-08-25 19:45:13,555 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:45:13,556 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:13,560 INFO analytics writing output to analysis.csv
+2025-08-25 19:45:13,562 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:45:13,562 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:13,566 INFO analytics writing output to analysis.csv
+2025-08-25 19:45:13,568 ERROR analytics missing config key: input_csv
+2025-08-25 19:45:13,568 ERROR analytics missing config key: output_csv
+2025-08-25 19:45:13,568 ERROR analytics missing config key: group_by
+2025-08-25 19:45:13,569 INFO analytics loading input_csv: input.csv
+2025-08-25 19:45:13,569 ERROR analytics input data is empty
+2025-08-25 19:45:13,570 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:45:13,570 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:45:13,572 INFO analytics loading input_csv: /tmp/tmpfk3bwvd5.csv
+2025-08-25 19:45:13,573 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:13,577 INFO analytics writing output to /tmp/tmp1kk6234a.csv
+2025-08-25 19:45:13,578 INFO src.io Wrote dataframe to /tmp/tmp1kk6234a.csv (rows=2)
+2025-08-25 19:45:13,597 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:45:13,598 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:45:13,598 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:45:13,599 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:45:13,599 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:45:13,599 INFO src.io Wrote dataframe to /tmp/tmp_e_f8d8z/completions.csv (rows=4)
+2025-08-25 19:45:13,600 INFO inference run_from_config inference finished, wrote /tmp/tmp_e_f8d8z/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:45:13,600 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:13,602 INFO src.io Wrote dataframe to /tmp/tmp_e_f8d8z/ratings.csv (rows=4)
+2025-08-25 19:45:13,602 INFO judge run_from_config judge finished, wrote /tmp/tmp_e_f8d8z/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:45:13,603 INFO analytics loading input_csv: /tmp/tmp_e_f8d8z/ratings.csv
+2025-08-25 19:45:13,604 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:13,608 INFO analytics writing output to /tmp/tmp_e_f8d8z/analysis.csv
+2025-08-25 19:45:13,609 INFO src.io Wrote dataframe to /tmp/tmp_e_f8d8z/analysis.csv (rows=2)
+2025-08-25 19:45:13,612 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-18/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:45:13,617 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-18/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-18/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:45:13,619 INFO visualization loading input_csv: /tmp/tmpa1g90z3g.csv
+2025-08-25 19:45:13,621 INFO visualization creating comparative visualization for score
+2025-08-25 19:45:13,812 INFO visualization loading input_csv: /tmp/tmpa1g90z3g.csv
+2025-08-25 19:45:13,814 INFO visualization creating radar chart
+2025-08-25 19:45:13,960 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-18/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:45:13,965 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-18/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-18/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 19:45:50,376 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:45:50,376 ERROR analytics.addin Add-in FailingAddin failed with a known error: fail!
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/analytics/addin_runner.py", line 14, in run_addin_with_logging
+    result = addin.run(data, **kwargs)
+  File "/home/johnro/sop-research/gnosis/tests/analytics/test_addin_runner.py", line 12, in run
+    raise ValueError("fail!")
+ValueError: fail!
+2025-08-25 19:45:50,424 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:45:50,428 INFO cli Analytics complete. Artifacts: ['test_output.csv']
+2025-08-25 19:45:50,432 ERROR cli ERROR: File not found
+2025-08-25 19:45:50,432 INFO cli Analytics complete. Artifacts: None
+2025-08-25 19:45:52,080 ERROR visualization missing config key: input_csv
+2025-08-25 19:45:52,080 ERROR visualization missing config key: output_dir
+2025-08-25 19:45:52,080 ERROR visualization missing config key: visualization_type
+2025-08-25 19:45:52,081 INFO visualization loading input_csv: nonexistent.csv
+2025-08-25 19:45:52,081 ERROR visualization Unexpected error loading input_csv: File not found
+2025-08-25 19:45:52,083 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,083 ERROR visualization input data is empty
+2025-08-25 19:45:52,085 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,086 INFO visualization creating comparative visualization for score
+2025-08-25 19:45:52,089 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,089 INFO visualization creating statistical visualization for score
+2025-08-25 19:45:52,092 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,092 INFO visualization creating radar chart
+2025-08-25 19:45:52,093 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,094 ERROR visualization unknown visualization_type: unknown
+2025-08-25 19:45:52,095 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,096 ERROR visualization metric_name is required for comparative visualization
+2025-08-25 19:45:52,096 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,096 ERROR visualization metric_name is required for statistical visualization
+2025-08-25 19:45:52,097 INFO visualization loading input_csv: input.csv
+2025-08-25 19:45:52,098 ERROR visualization no numeric columns found for radar chart
+2025-08-25 19:45:52,307 INFO visualization Visualization(s) created: test_output/comparative_score.png
+2025-08-25 19:45:52,309 INFO visualization Visualization(s) created: test_output/statistical_score.png
+2025-08-25 19:45:52,310 ERROR visualization ERROR: File not found
+2025-08-25 19:45:52,399 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:45:52,399 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:45:52,400 INFO inference generated for model=Llama:8B prompt_len=25
+2025-08-25 19:45:52,400 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:45:52,400 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:45:52,402 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:45:52,402 INFO inference generated for model=Llama:8B prompt_len=26
+2025-08-25 19:45:52,403 ERROR inference generation failed for model=Llama:8B: Ollama API error: context length exceeded
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 82, in run_from_config
+    resp: ModelResponse = model.generate(prompt, **row_kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1177, in _execute_mock_call
+    raise result
+Exception: Ollama API error: context length exceeded
+2025-08-25 19:45:52,403 INFO inference generated for model=Llama:8B prompt_len=31
+2025-08-25 19:45:52,404 INFO inference run_from_config inference finished, wrote test_output.csv (rows=3) duration=0.00s
+2025-08-25 19:45:52,405 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-25 19:45:52,405 ERROR inference missing config key: input_csv
+2025-08-25 19:45:52,405 INFO inference run_from_config start for inference, keys=['input_csv']
+2025-08-25 19:45:52,405 ERROR inference missing config key: output_csv
+2025-08-25 19:45:52,407 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:45:52,407 ERROR inference input CSV missing required 'prompt' column
+2025-08-25 19:45:52,408 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-25 19:45:52,409 ERROR inference failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:45:52,411 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model', 'model_config', 'api_params']
+2025-08-25 19:45:52,412 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:45:52,413 INFO src.io Wrote dataframe to /tmp/tmps73uspnd.csv (rows=1)
+2025-08-25 19:45:52,413 INFO inference run_from_config inference finished, wrote /tmp/tmps73uspnd.csv (rows=1) duration=0.00s
+2025-08-25 19:45:52,417 WARNING judge template_dir does not exist: nonexistent_dir
+2025-08-25 19:45:52,419 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:52,420 INFO judge run_from_config judge finished, wrote ratings.csv (rows=3) duration=0.00s
+2025-08-25 19:45:52,422 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:52,423 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:45:52,423 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:52,423 INFO judge run_from_config judge finished, wrote ratings.csv (rows=1) duration=0.00s
+2025-08-25 19:45:52,425 INFO judge run_from_config start for judge, keys=['output_csv', 'template_dir']
+2025-08-25 19:45:52,425 ERROR judge missing config key: input_csv
+2025-08-25 19:45:52,425 INFO judge run_from_config start for judge, keys=['input_csv', 'template_dir']
+2025-08-25 19:45:52,425 ERROR judge missing config key: output_csv
+2025-08-25 19:45:52,425 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv']
+2025-08-25 19:45:52,425 ERROR judge missing config key: template_dir
+2025-08-25 19:45:52,426 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:52,426 ERROR judge failed to load input_csv: File not found
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/johnro/miniconda3/envs/research-env/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+Exception: File not found
+2025-08-25 19:45:52,429 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:52,431 INFO src.io Wrote dataframe to /tmp/tmpmima8pkk.csv (rows=1)
+2025-08-25 19:45:52,431 INFO judge run_from_config judge finished, wrote /tmp/tmpmima8pkk.csv (rows=1) duration=0.00s
+2025-08-25 19:45:52,434 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:45:52,435 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:52,439 INFO analytics writing output to analysis.csv
+2025-08-25 19:45:52,441 INFO analytics loading input_csv: ratings.csv
+2025-08-25 19:45:52,441 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:52,445 INFO analytics writing output to analysis.csv
+2025-08-25 19:45:52,447 ERROR analytics missing config key: input_csv
+2025-08-25 19:45:52,447 ERROR analytics missing config key: output_csv
+2025-08-25 19:45:52,447 ERROR analytics missing config key: group_by
+2025-08-25 19:45:52,449 INFO analytics loading input_csv: input.csv
+2025-08-25 19:45:52,449 ERROR analytics input data is empty
+2025-08-25 19:45:52,450 INFO analytics loading input_csv: nonexistent.csv
+2025-08-25 19:45:52,450 ERROR analytics Unexpected error loading input_csv: File not found
+2025-08-25 19:45:52,452 INFO analytics loading input_csv: /tmp/tmpaq5tbscy.csv
+2025-08-25 19:45:52,452 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:52,456 INFO analytics writing output to /tmp/tmpgmpdv2as.csv
+2025-08-25 19:45:52,457 INFO src.io Wrote dataframe to /tmp/tmpgmpdv2as.csv (rows=2)
+2025-08-25 19:45:52,478 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 19:45:52,479 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:45:52,479 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 19:45:52,479 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:45:52,479 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 19:45:52,480 INFO src.io Wrote dataframe to /tmp/tmpm6zjbhgn/completions.csv (rows=4)
+2025-08-25 19:45:52,480 INFO inference run_from_config inference finished, wrote /tmp/tmpm6zjbhgn/completions.csv (rows=4) duration=0.00s
+2025-08-25 19:45:52,480 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 19:45:52,483 INFO src.io Wrote dataframe to /tmp/tmpm6zjbhgn/ratings.csv (rows=4)
+2025-08-25 19:45:52,483 INFO judge run_from_config judge finished, wrote /tmp/tmpm6zjbhgn/ratings.csv (rows=4) duration=0.00s
+2025-08-25 19:45:52,484 INFO analytics loading input_csv: /tmp/tmpm6zjbhgn/ratings.csv
+2025-08-25 19:45:52,485 INFO analytics aggregating data by ['model']
+2025-08-25 19:45:52,489 INFO analytics writing output to /tmp/tmpm6zjbhgn/analysis.csv
+2025-08-25 19:45:52,490 INFO src.io Wrote dataframe to /tmp/tmpm6zjbhgn/analysis.csv (rows=2)
+2025-08-25 19:45:52,494 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-19/test_write_and_load_csv0/test.csv (rows=2)
+2025-08-25 19:45:52,499 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-19/test_write_provenance_creates_0/artifact.txt -> /tmp/pytest-of-johnro/pytest-19/test_write_provenance_creates_0/artifact.txt.meta.json
+2025-08-25 19:45:52,501 INFO visualization loading input_csv: /tmp/tmpa0a6r72a.csv
+2025-08-25 19:45:52,503 INFO visualization creating comparative visualization for score
+2025-08-25 19:45:52,697 INFO visualization loading input_csv: /tmp/tmpa0a6r72a.csv
+2025-08-25 19:45:52,699 INFO visualization creating radar chart
+2025-08-25 19:45:52,847 INFO src.io Wrote dataframe to /tmp/pytest-of-johnro/pytest-19/test_write_and_load_csv1/test.csv (rows=2)
+2025-08-25 19:45:52,851 INFO src.io Wrote provenance for /tmp/pytest-of-johnro/pytest-19/test_write_provenance_creates_1/artifact.txt -> /tmp/pytest-of-johnro/pytest-19/test_write_provenance_creates_1/artifact.txt.meta.json
+2025-08-25 20:01:53,326 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv', 'default_model']
+2025-08-25 20:01:53,330 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 20:01:53,331 INFO inference generated for model=Llama:8B prompt_len=12
+2025-08-25 20:01:53,331 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 20:01:53,331 INFO inference generated for model=gpt-3.5-turbo prompt_len=12
+2025-08-25 20:01:53,332 INFO src.io Wrote dataframe to /tmp/tmpk1jhtdet/completions.csv (rows=4)
+2025-08-25 20:01:53,332 INFO inference run_from_config inference finished, wrote /tmp/tmpk1jhtdet/completions.csv (rows=4) duration=0.00s
+2025-08-25 20:01:53,332 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-25 20:01:53,335 INFO src.io Wrote dataframe to /tmp/tmpk1jhtdet/ratings.csv (rows=4)
+2025-08-25 20:01:53,335 INFO judge run_from_config judge finished, wrote /tmp/tmpk1jhtdet/ratings.csv (rows=4) duration=0.00s
+2025-08-25 20:01:53,336 INFO analytics loading input_csv: /tmp/tmpk1jhtdet/ratings.csv
+2025-08-25 20:01:53,337 INFO analytics aggregating data by ['model']
+2025-08-25 20:01:53,346 INFO analytics writing output to /tmp/tmpk1jhtdet/analysis.csv
+2025-08-25 20:01:53,347 INFO src.io Wrote dataframe to /tmp/tmpk1jhtdet/analysis.csv (rows=2)

@@ -143,4 +143,4 @@ def test_run_from_config_load_error(mock_load):
     })
     
     assert result["success"] is False
-    assert "failed to load input_csv" in result["error"]
+    assert "Unexpected error loading input_csv" in result["error"]

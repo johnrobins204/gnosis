@@ -1,43 +1,38 @@
 import sys
-from typing import Dict, Any, List, Optional
-
+from typing import Optional
 from src.analytics import run_from_config
+from src.analytics.yaml_loader import load_yaml_config
+from src.analytics.yaml_schema import validate_study_config, ConfigValidationError
 
-def run(argv=None):
+def run(argv: Optional[list] = None):
     """
-    Run analytics from command line arguments.
-    
-    Arguments:
-    - --input: Path to input CSV file
-    - --output: Path to output CSV file
-    - --group-by: Column to group by (comma-separated)
-    - --metrics: Metrics to calculate (comma-separated)
+    Run analytics from a YAML config file.
+    Usage: python -m src.analytics.cli --config path/to/config.yaml
     """
     import argparse
-    
-    parser = argparse.ArgumentParser(description="Run analytics")
-    parser.add_argument("--input", required=True, help="Path to input CSV file")
-    parser.add_argument("--output", required=True, help="Path to output CSV file")
-    parser.add_argument("--group-by", required=True, help="Column(s) to group by (comma-separated)")
-    parser.add_argument("--metrics", help="Metrics to calculate (comma-separated)")
-    
+
+    parser = argparse.ArgumentParser(description="Run analytics from YAML config")
+    parser.add_argument("--config", required=True, help="Path to YAML config file")
     args = parser.parse_args(argv)
-    
-    config = {
-        "input_csv": args.input,
-        "output_csv": args.output,
-        "group_by": args.group_by.split(",")
-    }
-    
-    if args.metrics:
-        config["metrics"] = args.metrics.split(",")
-    
-    result = run_from_config(config)
-    if not result["success"]:
-        print(f"ERROR: {result.get('error')}")
+
+    from src.logging_config import get_logger
+    _logger = get_logger("cli")
+    try:
+        config = load_yaml_config(args.config)
+        from src.analytics.config import apply_env_overrides
+        config = apply_env_overrides(config)
+        validate_study_config(config)
+    except (FileNotFoundError, ValueError, ConfigValidationError) as e:
+        _logger.error(f"Config error: {e}")
         sys.exit(1)
-    
-    print(f"Analytics complete, output written to {args.output}")
+
+    # Pass the loaded config to the analytics pipeline (adapt as needed)
+    result = run_from_config(config)
+    if not result.get("success", False):
+        _logger.error(f"ERROR: {result.get('error')}")
+        sys.exit(1)
+
+    _logger.info(f"Analytics complete. Artifacts: {result.get('artifacts')}")
     return result
 
 if __name__ == "__main__":

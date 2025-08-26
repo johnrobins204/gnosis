@@ -1,7 +1,7 @@
 from .base import Metric, MetricRegistry
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
+from sentence_transformers import SentenceTransformer  # type: ignore
+from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
+import numpy as np  # type: ignore
 import itertools
 
 class SemanticDifferenceMetric(Metric):

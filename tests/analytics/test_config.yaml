@@ -1,0 +1,15 @@
+input_csv: test_input.csv
+output_csv: test_output.csv
+group_by:
+  - model
+metrics:
+  - avg_judge_rating
+  - count
+study:
+  name: test_study
+  workflow:
+    steps:
+      - name: dummy_step
+        component: dummy_component
+        config: {}
+        description: Dummy workflow step for test

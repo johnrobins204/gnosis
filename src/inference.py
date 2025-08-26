@@ -19,11 +19,21 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     _logger.info("run_from_config start for inference, keys=%s", list(cfg.keys()))
     """
     cfg keys:
-      - input_csv: path to CSV with at least 'prompt' column
-      - output_csv: path to write outputs
-      - default_model: (optional) model identifier to use when rows don't provide one
-      - model_config: (optional) dict passed to get_model_instance
-      - api_params: (optional) dict passed to get_model_instance
+        - input_csv: path to CSV with at least 'prompt' column
+        - output_csv: path to write outputs
+        - default_model: (optional) model identifier to use when rows don't provide one
+        - model_config: (optional) dict passed to get_model_instance
+        - api_params: (optional) dict passed to get_model_instance
+        - temperature: (optional) float, sampling temperature
+        - top_p: (optional) float, nucleus sampling probability
+        - top_k: (optional) int, top-k sampling
+        - seed: (optional) int, random seed
+        - stop: (optional) list or str, stop sequences
+        - batch_size: (optional) int, batch size for generation
+        - output_format: (optional) str, output format
+        - max_tokens: (optional) int, max tokens to generate
+        - log_level: (optional) str, logging level
+        - ... (other advanced options)
     Returns {"success": bool, "artifacts": [output_csv], "error": optional}
     """
     required = ["input_csv", "output_csv"]
@@ -37,6 +47,15 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     default_model = cfg.get("default_model", "google:default")
     model_config = cfg.get("model_config")
     api_params = cfg.get("api_params")
+
+    # Advanced inference options (all optional)
+    inference_kwargs = {}
+    for key in [
+        "temperature", "top_p", "top_k", "seed", "stop", "batch_size",
+        "output_format", "max_tokens", "log_level", "n", "presence_penalty", "frequency_penalty"
+    ]:
+        if key in cfg:
+            inference_kwargs[key] = cfg[key]
 
     try:
         df = load_csv(input_csv)
@@ -55,7 +74,12 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
         model_id = _row_to_model_id(r.to_dict(), default_model)
         model = get_model_instance(model_id, config=model_config, api_params=api_params)
         try:
-            resp: ModelResponse = model.generate(prompt)
+            # Allow row-level override for advanced options if present in row
+            row_kwargs = inference_kwargs.copy()
+            for k in row_kwargs.keys():
+                if k in r:
+                    row_kwargs[k] = r[k]
+            resp: ModelResponse = model.generate(prompt, **row_kwargs)
             rows.append({
                 "model": resp.model,
                 "prompt": resp.prompt,
@@ -98,4 +122,13 @@ def run(argv: Optional[List[str]] = None) -> int:
     args = parser.parse_args(argv)
     cfg = {"input_csv": args.input, "output_csv": args.output, "default_model": args.default_model}
     res = run_from_config(cfg)
-    return 0 if res.get("success") else 3
+    if res.get("success"):
+        return 0
+    else:
+        _logger.error("%s", res.get("error", "Unknown error"))
+        return 3
+
+# Main guard for direct execution
+if __name__ == "__main__":
+    import sys
+    sys.exit(run())

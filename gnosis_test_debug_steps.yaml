@@ -1,0 +1,33 @@
+# gnosis_test_debug_steps.yaml
+# This file records all major test debugging and patching steps for reproducibility and audit.
+
+steps:
+  - step: Database user and database creation
+    details:
+      - Created PostgreSQL user 'testuser' with password 'testpassword'.
+      - Created database 'testdb' owned by 'testuser'.
+      - Granted all privileges on 'testdb' to 'testuser'.
+      - Verified connection with psql and Python.
+
+  - step: Environment variable setup
+    details:
+      - Exported DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_PORT in shell.
+      - Confirmed variables are read by Python test scripts.
+
+  - step: Test database schema creation
+    details:
+      - Ran tests/scripts/create_test_db_env.py to create all tables using SQLAlchemy models.
+      - Added sys.path patching to script for import reliability.
+      - Added debug output for env vars and connection string.
+
+  - step: Test suite run and error triage
+    details:
+      - Ran pytest and recorded all failing tests and error types.
+      - Identified issues: DB password not supplied in some tests, CLI tests missing --config, experiment tracker test isolation, error message assertion mismatch.
+
+  - step: Next patching actions (pending)
+    details:
+      - Patch DB test setup to ensure password is always supplied.
+      - Patch CLI tests to provide a config argument.
+      - Patch experiment tracker tests for isolation/cleanup.
+      - Patch error message assertions or code for consistency.

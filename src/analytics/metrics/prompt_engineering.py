@@ -1,5 +1,5 @@
 from src.analytics.metrics.base import Metric, MetricRegistry
-from transformers import GPT2Tokenizer
+from transformers import GPT2Tokenizer  # type: ignore
 
 class TokenUtilizationMetric(Metric):
     """Calculate token utilization metrics (input/output ratio, efficiency)."""

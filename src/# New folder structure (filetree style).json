@@ -1,0 +1,182 @@
+# New folder structure (filetree style)
+tests/
+  unit/
+    __init__.py
+    io/
+      __init__.py
+      test_io.py
+    # ... (other submodules as needed)
+    test_hello_world.py
+backlog/
+  test_project_backlog.json
+
+# Content for backlog/test_project_backlog.json
+[
+  {
+  "test_case": "test_backlog_file_exists_and_valid_json",
+  "description": "Check that backlog/project_backlog.json exists and is valid JSON.",
+  "steps": [
+    "Open backlog/project_backlog.json",
+    "Parse as JSON",
+    "Assert no exception is raised"
+  ],
+  "expected_result": "File exists and is valid JSON"
+  },
+  {
+  "test_case": "test_backlog_required_top_level_fields",
+  "description": "Ensure required top-level fields exist in the backlog.",
+  "steps": [
+    "Load backlog/project_backlog.json as JSON",
+    "Check for fields: title, version, overview, metadata, tasks"
+  ],
+  "expected_result": "All required top-level fields are present"
+  },
+  {
+  "test_case": "test_backlog_tasks_have_required_fields",
+  "description": "Verify each task has required fields.",
+  "steps": [
+    "Iterate over each task in 'tasks'",
+    "Assert fields: id, title, description, files, acceptance_criteria, status, priority"
+  ],
+  "expected_result": "All tasks have required fields"
+  },
+  {
+  "test_case": "test_backlog_task_ids_unique",
+  "description": "Ensure all task IDs are unique.",
+  "steps": [
+    "Collect all task IDs",
+    "Assert no duplicates"
+  ],
+  "expected_result": "All task IDs are unique"
+  },
+  {
+  "test_case": "test_backlog_subtasks_structure",
+  "description": "Check that tasks with subtasks have valid subtask structures.",
+  "steps": [
+    "For each task with 'subtasks', ensure each subtask has id, title, description, and status"
+  ],
+  "expected_result": "All subtasks have required fields"
+  },
+  {
+  "test_case": "test_backlog_dependencies_reference_valid_ids",
+  "description": "Ensure all dependencies reference valid task IDs.",
+  "steps": [
+    "For each task, check dependencies list",
+    "Assert each dependency is a valid task ID"
+  ],
+  "expected_result": "All dependencies reference valid task IDs"
+  },
+  {
+  "test_case": "test_backlog_status_values",
+  "description": "Check that all tasks have allowed status values.",
+  "steps": [
+    "For each task, check 'status' is in allowed set: todo, done, skipped"
+  ],
+  "expected_result": "All statuses are valid"
+  }
+]# Proposed new structure for tests/ (filetree style)
+tests/
+  unit/
+    __init__.py
+    io/
+      __init__.py
+      test_io.py
+    orchestrator/
+      __init__.py
+      test_orchestrator.py
+    judge/
+      __init__.py
+      test_judge.py
+    models/
+      __init__.py
+      adapters/
+        __init__.py
+        test_experiment_adapter.py
+      test_impl.py
+    cli/
+      __init__.py
+      test_cli.py
+    analytics/
+      __init__.py
+      test_metrics.py
+      test_aggregation.py
+      test_registry.py
+      test_utils.py
+      test_db_file.py
+      test_db_postgres.py
+      test_profiling.py
+    validate_configs/
+      __init__.py
+      test_validate_configs.py
+    test_hello_world.py
+  integration/
+    __init__.py
+    # (integration tests go here)
+  test_backlog/
+    __init__.py
+    test_project_backlog.py
+
+# Sample test file for backlog/test_project_backlog.json
+# File: backlog/test_project_backlog.json
+
+[
+  {
+  "test_case": "test_backlog_file_exists",
+  "description": "Check that the project backlog file exists and is valid JSON.",
+  "steps": [
+    "Open backlog/project_backlog.json",
+    "Parse as JSON",
+    "Assert no exception is raised"
+  ],
+  "expected_result": "File exists and is valid JSON"
+  },
+  {
+  "test_case": "test_backlog_has_tasks",
+  "description": "Ensure the backlog contains a non-empty 'tasks' list.",
+  "steps": [
+    "Load backlog/project_backlog.json as JSON",
+    "Check that 'tasks' is present and is a non-empty list"
+  ],
+  "expected_result": "'tasks' key exists and contains at least one task"
+  },
+  {
+  "test_case": "test_task_fields",
+  "description": "Verify that each task has required fields: id, title, description, files, acceptance_criteria, status, priority.",
+  "steps": [
+    "Iterate over each task in 'tasks'",
+    "Assert required fields are present"
+  ],
+  "expected_result": "All tasks have required fields"
+  }
+]
+
+# Example Python test file for the backlog (to be placed at tests/test_backlog/test_project_backlog.py)
+# (This is a real pytest test file.)
+
+import json
+import os
+import pytest
+
+BACKLOG_PATH = os.path.join(os.path.dirname(__file__), '../../backlog/project_backlog.json')
+
+def test_backlog_file_exists():
+  assert os.path.exists(BACKLOG_PATH), f"{BACKLOG_PATH} does not exist"
+  with open(BACKLOG_PATH, 'r') as f:
+    data = json.load(f)
+  assert isinstance(data, dict)
+
+def test_backlog_has_tasks():
+  with open(BACKLOG_PATH, 'r') as f:
+    data = json.load(f)
+  assert 'tasks' in data
+  assert isinstance(data['tasks'], list)
+  assert len(data['tasks']) > 0
+
+@pytest.mark.parametrize("required", [
+  "id", "title", "description", "files", "acceptance_criteria", "status", "priority"
+])
+def test_task_fields(required):
+  with open(BACKLOG_PATH, 'r') as f:
+    data = json.load(f)
+  for task in data['tasks']:
+    assert required in task, f"Task {task.get('id', '?')} missing field: {required}"

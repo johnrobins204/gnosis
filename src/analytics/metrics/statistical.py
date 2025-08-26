@@ -1,5 +1,5 @@
-import numpy as np
-from scipy.stats import ttest_ind, norm
+import numpy as np  # type: ignore
+from scipy.stats import ttest_ind, norm  # type: ignore
 from src.analytics.metrics.base import Metric, MetricRegistry
 
 class ConfidenceIntervalMetric(Metric):

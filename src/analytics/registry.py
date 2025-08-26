@@ -1,7 +1,9 @@
 # Handles metric registration and lookup
 
+from typing import Dict, Any
+
 class MetricRegistry:
-    _metrics = {}
+    _metrics: Dict[str, Any] = {}
 
     @classmethod
     def register(cls, metric_cls):

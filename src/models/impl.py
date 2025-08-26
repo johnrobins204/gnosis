@@ -4,19 +4,41 @@ from ..types import ModelResponse
 
 
 class LanguageModel(ABC):
-    def __init__(self, identifier: str, config: Optional[Dict[str, Any]] = None, api_params: Optional[Dict[str, Any]] = None):
+    """
+    Abstract base class for language models.
+    """
+    def __init__(self, identifier: str, config: Optional[Dict[str, Any]] = None, api_params: Optional[Dict[str, Any]] = None) -> None:
+        """
+        Args:
+            identifier: Model identifier string.
+            config: Optional configuration dict.
+            api_params: Optional API parameters dict.
+        """
         self.identifier = identifier
         self.config = config or {}
         self.api_params = api_params or {}
 
     @abstractmethod
     def generate(self, prompt: str, **kwargs) -> ModelResponse:
-        """Generate a completion for the prompt and return a ModelResponse."""
+        """
+        Generate a completion for the prompt and return a ModelResponse.
+        Args:
+            prompt: Input prompt string.
+            **kwargs: Additional generation parameters.
+        Returns:
+            ModelResponse object.
+        """
         raise NotImplementedError
 
 
 class GoogleModel(LanguageModel):
+    """
+    Stub implementation of a Google-backed language model.
+    """
     def generate(self, prompt: str, **kwargs) -> ModelResponse:
+        """
+        Generate a completion using GoogleModel (stub).
+        """
         # Minimal stub implementation: echo prompt. Replace with real API call later.
         return ModelResponse(
             model=f"google:{self.identifier}",
@@ -28,7 +50,13 @@ class GoogleModel(LanguageModel):
 
 
 class OllamaModel(LanguageModel):
+    """
+    Stub implementation of an Ollama-backed language model.
+    """
     def generate(self, prompt: str, **kwargs) -> ModelResponse:
+        """
+        Generate a completion using OllamaModel (stub).
+        """
         # Minimal stub implementation: echo with provider tag.
         return ModelResponse(
             model=f"ollama:{self.identifier}",
@@ -40,6 +68,12 @@ class OllamaModel(LanguageModel):
 
 
 def get_model_instance(identifier: str, config: Optional[Dict[str, Any]] = None, api_params: Optional[Dict[str, Any]] = None) -> LanguageModel:
+    """
+    Factory returning a LanguageModel instance.
+    Identifier prefixes supported: 'google:<name>' and 'ollama:<name>'.
+    Default provider is GoogleModel when no prefix is present.
+    Supports 'experiment:<name>[:<model_id>]' via adapter.
+    """
     """
     Factory returning a LanguageModel instance.
     Identifier prefixes supported: 'google:<name>' and 'ollama:<name>'.

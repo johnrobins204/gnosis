@@ -1,3 +1,4 @@
+
 import argparse
 from typing import Dict, Any, List, Optional
 import pandas as pd
@@ -157,4 +158,10 @@ def run(argv: Optional[List[str]] = None) -> int:
     if result.get("success"):
         return 0
     else:
+        _logger.error("%s", result.get("error", "Unknown error"))
         return 2
+
+# Main guard for direct execution
+if __name__ == "__main__":
+    import sys
+    sys.exit(run())
