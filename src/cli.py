@@ -2,8 +2,8 @@
 import argparse
 import sys
 from typing import List
-from src.orchestrator import orchestrate
-from src.logging_config import get_logger
+from orchestrator import orchestrate
+from logging_config import get_logger
 
 _logger = get_logger("cli")
 

@@ -5,8 +5,8 @@ import time
 
 import pandas as pd
 
-from src.io import load_csv, write_dataframe
-from src.logging_config import get_logger
+from gnosis_io import load_csv, write_dataframe
+from logging_config import get_logger
 
 _logger = get_logger("judge")
 

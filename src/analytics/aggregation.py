@@ -1,4 +1,4 @@
-from .db_postgres import PostgresAnalyticsDataAccess
+from analytics.db_postgres import PostgresAnalyticsDataAccess
 import json
 import pandas as pd  # type: ignore
 import numpy as np  # type: ignore

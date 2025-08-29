@@ -1,5 +1,5 @@
 import json
-from src.types import ModelResponse
+from gnosis_types import ModelResponse
 
 def test_modelresponse_serialization():
     mr = ModelResponse(model="m1", prompt="p", completion="c", score=0.9, metadata={"k":"v"})

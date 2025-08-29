@@ -1,0 +1,12 @@
+{
+  "artifact": "dummy",
+  "created_at": "2025-08-26T23:31:52.765939Z",
+  "git_sha": "53f51f1a76bc5360a67927083d19b2a0a35dbce1",
+  "config": {
+    "step": "dummy",
+    "component": "dummy",
+    "config": {
+      "foo": "bar"
+    }
+  }
+}

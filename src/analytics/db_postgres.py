@@ -3,8 +3,7 @@ import os
 import pandas as pd  # type: ignore
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from db_migrations.models import AnalyticsEvent, Experiment, ExperimentResult, AggregationResult
-from .db import AnalyticsDataAccess
+from analytics.db import AnalyticsDataAccess
 
 class PostgresAnalyticsDataAccess(AnalyticsDataAccess):
     """

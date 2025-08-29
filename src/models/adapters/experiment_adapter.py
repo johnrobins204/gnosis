@@ -4,9 +4,9 @@ from pathlib import Path
 from typing import Optional, Dict, Any
 
 
-from ..impl import LanguageModel
-from ...types import ModelResponse
-from ...logging_config import get_logger
+from models.impl import LanguageModel
+from gnosis_types import ModelResponse
+from logging_config import get_logger
 
 _logger = get_logger("experiment_adapter")
 

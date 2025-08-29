@@ -1,6 +1,6 @@
 
-from src.logging_config import get_logger
-from .analytics_addin_base import AnalyticsAddinBase
+from logging_config import get_logger
+from analytics.analytics_addin_base import AnalyticsAddinBase
 
 def run_addin_with_logging(addin: AnalyticsAddinBase, data, **kwargs):
   """

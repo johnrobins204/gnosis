@@ -5,8 +5,8 @@ from scipy import stats  # type: ignore
 from typing import List, Dict, Any
 from typing import Optional
 
-from src.analytics.metrics.base import Metric
-from src.analytics.registry import MetricRegistry
+from analytics.metrics.base import Metric
+from analytics.registry import MetricRegistry
 
 class AggregateMetric(Metric):
     """Base class for metrics that operate on aggregated data."""

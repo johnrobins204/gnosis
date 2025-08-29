@@ -4,8 +4,8 @@ import pandas as pd  # type: ignore
 import os
 from typing import Dict, Any, List, Optional
 
-from src.io import load_csv
-from src.logging_config import get_logger
+from gnosis_io import load_csv
+from logging_config import get_logger
 
 _logger = get_logger("visualization")
 

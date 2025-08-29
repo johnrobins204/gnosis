@@ -5,7 +5,7 @@ import tempfile
 from unittest.mock import patch, MagicMock
 
 from src.inference import run_from_config
-from src.types import ModelResponse
+from src.gnosis_types import ModelResponse
 
 def test_inference_smoke():
     """

@@ -1,5 +1,5 @@
-from src.analytics.db import FileAnalyticsDataAccess
-from src.analytics.db_postgres import PostgresAnalyticsDataAccess
+from analytics.db import FileAnalyticsDataAccess
+from analytics.db_postgres import PostgresAnalyticsDataAccess
 
 def get_analytics_data_access(config: dict):
     """

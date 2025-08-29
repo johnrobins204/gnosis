@@ -1,4 +1,4 @@
-from .base import Metric, MetricRegistry
+from analytics.metrics.base import Metric, MetricRegistry
 from sentence_transformers import SentenceTransformer  # type: ignore
 from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
 import numpy as np  # type: ignore

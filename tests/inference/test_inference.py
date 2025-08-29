@@ -4,7 +4,7 @@ import pandas as pd
 import json
 
 from src.inference import run_from_config, _row_to_model_id
-from src.types import ModelResponse
+from src.gnosis_types import ModelResponse
 
 @pytest.fixture
 def sample_config():

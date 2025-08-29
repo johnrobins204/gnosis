@@ -1,4 +1,4 @@
-from src.analytics.metrics.base import Metric, MetricRegistry
+from analytics.metrics.base import Metric, MetricRegistry
 from nltk.translate.bleu_score import sentence_bleu  # type: ignore
 from rouge_score import rouge_scorer  # type: ignore
 from bert_score import score  # type: ignore

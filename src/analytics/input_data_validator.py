@@ -1,5 +1,5 @@
 import pandas as pd  # type: ignore
-from .analytics_addin_manifest_validator import ManifestValidationError
+from analytics.analytics_addin_manifest_validator import ManifestValidationError
 
 def validate_input_data(data, manifest):
     """

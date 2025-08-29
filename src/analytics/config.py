@@ -1,7 +1,7 @@
 
 import os
 from typing import Dict, Any
-from src.logging_config import get_logger
+from logging_config import get_logger
 
 _logger = get_logger("config")
 

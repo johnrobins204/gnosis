@@ -2,11 +2,11 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional
 import pandas as pd  # type: ignore
 
-from src.io import load_csv, write_dataframe
-from src.logging_config import get_logger
+from gnosis_io import load_csv, write_dataframe
+from logging_config import get_logger
 # Fix the import path to the correct location
-from src.analytics.aggregation import DataAggregator # Changed from metrics.aggregate_metrics
-from src.analytics.metrics import BasicMetrics
+from analytics.aggregation import DataAggregator # Changed from metrics.aggregate_metrics
+from analytics.metrics import BasicMetrics
 
 _logger = get_logger("analytics")
 
@@ -148,4 +148,4 @@ def run_from_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
         return {"success": False, "error": f"Unexpected error during analytics: {e}"}
 
 # Keep existing exports to maintain compatibility
-from src.analytics.experiment_tracker import ExperimentTracker
+from analytics.experiment_tracker import ExperimentTracker

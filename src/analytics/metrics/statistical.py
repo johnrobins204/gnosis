@@ -1,6 +1,6 @@
 import numpy as np  # type: ignore
 from scipy.stats import ttest_ind, norm  # type: ignore
-from src.analytics.metrics.base import Metric, MetricRegistry
+from analytics.metrics.base import Metric, MetricRegistry
 
 class ConfidenceIntervalMetric(Metric):
     """Calculate confidence intervals for a given dataset."""

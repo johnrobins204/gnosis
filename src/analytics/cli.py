@@ -1,8 +1,8 @@
 import sys
 from typing import Optional
-from src.analytics import run_from_config
-from src.analytics.yaml_loader import load_yaml_config
-from src.analytics.yaml_schema import validate_study_config, ConfigValidationError
+from analytics import run_from_config
+from analytics.yaml_loader import load_yaml_config
+from analytics.yaml_schema import validate_study_config, ConfigValidationError
 
 def run(argv: Optional[list] = None):
     """
@@ -15,11 +15,11 @@ def run(argv: Optional[list] = None):
     parser.add_argument("--config", required=True, help="Path to YAML config file")
     args = parser.parse_args(argv)
 
-    from src.logging_config import get_logger
+    from logging_config import get_logger
     _logger = get_logger("cli")
     try:
         config = load_yaml_config(args.config)
-        from src.analytics.config import apply_env_overrides
+        from analytics.config import apply_env_overrides
         config = apply_env_overrides(config)
         validate_study_config(config)
     except (FileNotFoundError, ValueError, ConfigValidationError) as e:

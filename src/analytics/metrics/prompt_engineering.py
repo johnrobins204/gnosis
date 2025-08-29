@@ -1,4 +1,4 @@
-from src.analytics.metrics.base import Metric, MetricRegistry
+from analytics.metrics.base import Metric, MetricRegistry
 from transformers import GPT2Tokenizer  # type: ignore
 
 class TokenUtilizationMetric(Metric):

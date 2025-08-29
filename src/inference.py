@@ -2,10 +2,10 @@ from typing import Dict, Any, Optional, List
 import json
 import time
 
-from src.io import load_csv, write_dataframe
-from src.models import get_model_instance
-from src.types import ModelResponse
-from src.logging_config import get_logger
+from gnosis_io import load_csv, write_dataframe
+from models import get_model_instance
+from gnosis_types import ModelResponse
+from logging_config import get_logger
 
 _logger = get_logger("inference")
 

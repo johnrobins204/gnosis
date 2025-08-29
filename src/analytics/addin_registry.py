@@ -1,8 +1,8 @@
 import os
 import importlib
 import yaml
-from .analytics_addin_manifest_validator import validate_manifest, ManifestValidationError
-from .analytics_addin_base import AnalyticsAddinBase
+from analytics.analytics_addin_manifest_validator import validate_manifest, ManifestValidationError
+from analytics.analytics_addin_base import AnalyticsAddinBase
 
 class AddinRegistry:
     """

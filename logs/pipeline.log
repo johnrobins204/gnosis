@@ -6484,3 +6484,202 @@ Exception: File not found
 2025-08-25 20:01:53,337 INFO analytics aggregating data by ['model']
 2025-08-25 20:01:53,346 INFO analytics writing output to /tmp/tmpk1jhtdet/analysis.csv
 2025-08-25 20:01:53,347 INFO src.io Wrote dataframe to /tmp/tmpk1jhtdet/analysis.csv (rows=2)
+2025-08-26 17:14:26,863 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:14:26,864 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 17:14:26,950 INFO inference run_from_config start for inference, keys=[]
+2025-08-26 17:14:26,950 ERROR inference missing config key: input_csv
+2025-08-26 17:14:27,008 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 17:14:27,008 ERROR inference missing config key: input_csv
+2025-08-26 17:14:27,031 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:14:27,031 ERROR inference failed to load input_csv: CSV not found: dummy.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: dummy.csv
+2025-08-26 17:15:03,152 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:15:03,152 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 17:15:03,237 INFO inference run_from_config start for inference, keys=[]
+2025-08-26 17:15:03,237 ERROR inference missing config key: input_csv
+2025-08-26 17:15:03,293 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 17:15:03,293 ERROR inference missing config key: input_csv
+2025-08-26 17:15:03,316 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:15:03,316 ERROR inference failed to load input_csv: CSV not found: dummy.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: dummy.csv
+2025-08-26 17:15:35,481 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:15:35,481 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 17:15:35,583 INFO inference run_from_config start for inference, keys=[]
+2025-08-26 17:15:35,583 ERROR inference missing config key: input_csv
+2025-08-26 17:15:35,653 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 17:15:35,653 ERROR inference missing config key: input_csv
+2025-08-26 17:15:35,685 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:15:35,685 ERROR inference failed to load input_csv: CSV not found: dummy.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: dummy.csv
+2025-08-26 17:16:27,684 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:16:27,684 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 17:16:27,697 INFO inference run_from_config start for inference, keys=[]
+2025-08-26 17:16:27,697 ERROR inference missing config key: input_csv
+2025-08-26 17:16:27,749 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 17:16:27,749 ERROR inference missing config key: input_csv
+2025-08-26 17:16:27,770 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 17:16:27,770 ERROR inference failed to load input_csv: CSV not found: dummy.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: dummy.csv
+2025-08-26 18:24:34,930 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 18:24:34,931 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:24:34,944 INFO inference run_from_config start for inference, keys=[]
+2025-08-26 18:24:34,944 ERROR inference missing config key: input_csv
+2025-08-26 18:24:35,005 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 18:24:35,005 ERROR inference missing config key: input_csv
+2025-08-26 18:24:35,025 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 18:24:35,026 ERROR inference failed to load input_csv: CSV not found: dummy.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: dummy.csv
+2025-08-26 18:26:33,369 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 18:26:33,369 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:26:33,371 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-26 18:26:33,372 ERROR judge failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:26:33,384 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 18:26:33,384 ERROR inference missing config key: input_csv
+2025-08-26 18:26:33,389 INFO src.io Wrote provenance for b.csv -> b.csv.meta.json
+2025-08-26 18:26:33,401 INFO src.io Wrote provenance for dummy -> dummy.meta.json
+2025-08-26 18:26:33,405 INFO src.io Wrote provenance for dummy_out.csv -> dummy_out.csv.meta.json
+2025-08-26 18:28:16,979 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 18:28:16,980 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:28:16,982 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-26 18:28:16,983 ERROR judge failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:28:16,991 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 18:28:16,991 ERROR inference missing config key: input_csv
+2025-08-26 18:28:16,996 INFO src.io Wrote provenance for b.csv -> b.csv.meta.json
+2025-08-26 18:28:17,005 INFO src.io Wrote provenance for dummy -> dummy.meta.json
+2025-08-26 18:28:17,009 INFO src.io Wrote provenance for dummy_out.csv -> dummy_out.csv.meta.json
+2025-08-26 18:30:38,156 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 18:30:38,156 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:30:38,158 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-26 18:30:38,159 ERROR judge failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:30:38,167 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 18:30:38,167 ERROR inference missing config key: input_csv
+2025-08-26 18:30:38,172 INFO src.io Wrote provenance for b.csv -> b.csv.meta.json
+2025-08-26 18:30:38,182 INFO src.io Wrote provenance for dummy -> dummy.meta.json
+2025-08-26 18:30:38,186 INFO src.io Wrote provenance for dummy_out.csv -> dummy_out.csv.meta.json
+2025-08-26 18:31:52,741 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 18:31:52,741 ERROR inference failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:31:52,743 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-26 18:31:52,743 ERROR judge failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv
+2025-08-26 18:31:52,754 INFO inference run_from_config start for inference, keys=['output_csv']
+2025-08-26 18:31:52,754 ERROR inference missing config key: input_csv
+2025-08-26 18:31:52,758 INFO src.io Wrote provenance for b.csv -> b.csv.meta.json
+2025-08-26 18:31:52,767 INFO src.io Wrote provenance for dummy -> dummy.meta.json
+2025-08-26 18:31:52,770 INFO inference run_from_config start for inference, keys=['input_csv', 'output_csv']
+2025-08-26 18:31:52,771 ERROR inference failed to load input_csv: CSV not found: dummy.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/inference.py", line 61, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: dummy.csv
+2025-08-26 18:44:12,428 INFO judge run_from_config start for judge, keys=['input_csv', 'output_csv', 'template_dir']
+2025-08-26 18:44:12,428 ERROR judge failed to load input_csv: CSV not found: missing.csv
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/src/judge.py", line 83, in run_from_config
+    df = load_csv(input_csv)
+  File "/home/johnro/sop-research/gnosis/src/io.py", line 67, in load_csv
+    raise FileNotFoundError(f"CSV not found: {path}")
+FileNotFoundError: CSV not found: missing.csv

@@ -7,7 +7,7 @@ from unittest.mock import patch, MagicMock
 from src.inference import run_from_config as run_inference
 from src.judge import run_from_config as run_judge
 from src.analytics import run_from_config as run_analytics
-from src.types import ModelResponse
+from src.gnosis_types import ModelResponse
 
 @pytest.fixture
 def test_directory():

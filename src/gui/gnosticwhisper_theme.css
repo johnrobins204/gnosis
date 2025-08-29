@@ -1,0 +1,55 @@
+/* GnosticWhisper Custom Theme Enhancements */
+
+/* Main pane cosmic background (subtle gradient) */
+section.main > div:first-child {
+    background: linear-gradient(135deg, #1a1a2e 0%, #3c1d4a 100%);
+    min-height: 100vh;
+}
+
+/* Sidebar spacing and logo polish */
+.css-1d391kg, .css-1v0mbdj { /* Streamlit sidebar container classes */
+    padding-top: 2.5rem !important;
+}
+
+/* All-caps, bold, accent color for major headings */
+h1, h2, h3, .stSidebar h2, .stSidebar h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #89d6ff !important;
+}
+
+/* Section headers with icons */
+.stSidebar h2:before {
+    content: "🪐 ";
+}
+
+/* Accent color for primary buttons */
+.stButton > button:first-child {
+    background-color: #89d6ff !important;
+    color: #1a1a2e !important;
+    border-radius: 6px !important;
+    font-weight: bold;
+    box-shadow: 0 0 8px #89d6ff44;
+    border: none;
+}
+.stButton > button:first-child:hover {
+    background-color: #a0ffff !important;
+    color: #1a1a2e !important;
+    box-shadow: 0 0 16px #a0ffff88;
+}
+
+/* Info/success/warning blocks with accent border */
+.stAlert {
+    border-left: 6px solid #89d6ff !important;
+}
+
+/* Sidebar link color */
+.stSidebar a {
+    color: #a0ffff !important;
+}
+
+/* Extra spacing between sidebar sections */
+.stSidebar > * {
+    margin-bottom: 1.2rem !important;
+}

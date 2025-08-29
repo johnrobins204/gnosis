@@ -1,2 +1,0 @@
-# This is the Alembic migration script directory.
-# Place migration scripts here. Use `alembic revision --autogenerate -m "message"` to create new migrations.

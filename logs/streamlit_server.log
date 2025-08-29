@@ -1,0 +1,28 @@
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.18.217.162:8501
+  External URL: http://158.51.210.201:8501
+
+2025-08-29 07:57:03.099 Uncaught app execution
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/.venv/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/home/johnro/sop-research/gnosis/.venv/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+  File "/home/johnro/sop-research/gnosis/src/gui/app.py", line 3, in <module>
+    from orchestrator import orchestrate
+ModuleNotFoundError: No module named 'orchestrator'
+2025-08-29 07:58:52.386 Uncaught app execution
+Traceback (most recent call last):
+  File "/home/johnro/sop-research/gnosis/.venv/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 128, in exec_func_with_error_handling
+    result = func()
+  File "/home/johnro/sop-research/gnosis/.venv/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 669, in code_to_exec
+    exec(code, module.__dict__)  # noqa: S102
+  File "/home/johnro/sop-research/gnosis/src/gui/app.py", line 3, in <module>
+    from orchestrator import orchestrate
+ModuleNotFoundError: No module named 'orchestrator'

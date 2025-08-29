@@ -1,7 +1,7 @@
-from src.analytics.config import validate_config
-from src.analytics.aggregation import DataAggregator
-from src.analytics.registry import MetricRegistry
-from src.io import load_csv, write_dataframe
+from analytics.config import validate_config
+from analytics.aggregation import DataAggregator
+from analytics.registry import MetricRegistry
+from gnosis_io import load_csv, write_dataframe
 
 from typing import Any, Dict, Optional
 

@@ -4,9 +4,9 @@ from typing import Dict, Any, List, Optional
 import pandas as pd
 from scipy.stats import ttest_ind
 
-from src.analytics.metrics.base import MetricRegistry
-from src.io import load_csv, write_dataframe  # uses centralized IO helpers
-from src.logging_config import get_logger
+from analytics.metrics.base import MetricRegistry
+from gnosis_io import load_csv, write_dataframe  # uses centralized IO helpers
+from logging_config import get_logger
 
 _logger = get_logger("analyst")
 

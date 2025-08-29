@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional
-from ..types import ModelResponse
+from gnosis_types import ModelResponse
 
 
 class LanguageModel(ABC):
@@ -83,7 +83,7 @@ def get_model_instance(identifier: str, config: Optional[Dict[str, Any]] = None,
     # new experiment adapter handling
     if identifier.startswith("experiment:"):
         # lazy import adapter to avoid import-time deps
-        from .adapters import experiment_adapter  # type: ignore
+        from models.adapters import experiment_adapter  # type: ignore
         return experiment_adapter.get_experiment_model_instance(identifier, config=config, api_params=api_params)
 
     if identifier.startswith("google:"):

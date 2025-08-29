@@ -3,8 +3,7 @@ import hashlib
 import json
 import os
 from typing import Optional
-from .db_postgres import PostgresAnalyticsDataAccess
-from db_migrations.models import Experiment, ExperimentResult
+from analytics.db_postgres import PostgresAnalyticsDataAccess
 
 class ExperimentTracker:
     """Class for tracking experiments and their results (DB or file backend)."""

@@ -2,7 +2,7 @@ import os
 import tempfile
 import pandas as pd
 import pytest
-from src.io import load_csv, write_dataframe, write_provenance
+from src.gnosis_io import load_csv, write_dataframe, write_provenance
 
 def test_write_and_load_csv(tmp_path):
     df = pd.DataFrame({'a': [1, 2], 'b': [3, 4]})
